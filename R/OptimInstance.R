@@ -51,8 +51,7 @@ OptimInstance = R6Class("OptimInstance",
         private$.objective_function = objective_error
       } else {
         private$.objective_function = objective_function
-        private$.objective_multiplicator =
-          ifelse(self$objective$codomain$tags == "minimize", 1, -1)
+        private$.objective_multiplicator = mult_max_to_min(self$objective$codomain)
       }
     },
 
@@ -100,6 +99,7 @@ OptimInstance = R6Class("OptimInstance",
         self$is_terminated = TRUE
         stop(terminated_error(self))
       }
+      assert_data_table(xdt)
       xss_trafoed = transform_xdt_to_xss(xdt, self$search_space)
       lg$info("Evaluating %i configuration(s)", nrow(xdt))
       ydt = self$objective$eval_many(xss_trafoed)
