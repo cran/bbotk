@@ -12,6 +12,7 @@
 #'
 #' @template param_xdt
 #' @template param_search_space
+#' @template param_keep_evals
 #' @export
 OptimInstance = R6Class("OptimInstance",
   public = list(
@@ -31,12 +32,25 @@ OptimInstance = R6Class("OptimInstance",
     #' @field archive ([Archive]).
     archive = NULL,
 
+    #' @field progressor (`progressor()`)\cr
+    #' Stores `progressor` function.
+    progressor = NULL,
+
+    #' @field objective_multiplicator (`integer()`).
+    objective_multiplicator = NULL,
+
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     #'
     #' @param objective ([Objective]).
     #' @param terminator ([Terminator]).
-    initialize = function(objective, search_space = NULL, terminator) {
+    #' @param check_values (`logical(1)`)\cr
+    #' Should x-values that are added to the archive be checked for validity?
+    #' Search space that is logged into archive.
+    initialize = function(objective, search_space = NULL, terminator,
+      keep_evals = "all", check_values = TRUE) {
+
+      assert_choice(keep_evals, c("all", "best"))
       self$objective = assert_r6(objective, "Objective")
       self$search_space = if (is.null(search_space)) {
         self$objective$domain
@@ -44,15 +58,30 @@ OptimInstance = R6Class("OptimInstance",
         assert_param_set(search_space)
       }
       self$terminator = assert_terminator(terminator, self)
-      self$archive = Archive$new(search_space = self$search_space,
-        codomain = objective$codomain)
 
-      if (!all(self$search_space$is_number)) {
+      assert_flag(check_values)
+
+      is_rfundt = inherits(self$objective, "ObjectiveRFunDt")
+
+      self$archive = if (keep_evals == "all") {
+        Archive$new(search_space = self$search_space,
+          codomain = objective$codomain, check_values = check_values,
+          store_x_domain = !is_rfundt || self$search_space$has_trafo)
+      } else if (keep_evals == "best") {
+        ArchiveBest$new(search_space = self$search_space,
+          codomain = objective$codomain, check_values = check_values,
+          store_x_domain = !is_rfundt || self$search_space$has_trafo) 
+          # only not store xss if we have RFunDT and not trafo
+      }
+
+      if (!self$search_space$all_numeric) {
         private$.objective_function = objective_error
       } else {
         private$.objective_function = objective_function
-        private$.objective_multiplicator = mult_max_to_min(self$objective$codomain)
       }
+      self$objective_multiplicator = mult_max_to_min(self$objective$codomain)
+
+      self$progressor = Progressor$new()
     },
 
     #' @description
@@ -95,19 +124,37 @@ OptimInstance = R6Class("OptimInstance",
     #' the *search space* of the [OptimInstance] object. Can contain additional
     #' columns for extra information.
     eval_batch = function(xdt) {
+      self$progressor$update(self$terminator, self$archive)
+
       if (self$is_terminated || self$terminator$is_terminated(self$archive)) {
         self$is_terminated = TRUE
         stop(terminated_error(self))
       }
+
       assert_data_table(xdt)
-      xss_trafoed = transform_xdt_to_xss(xdt, self$search_space)
+
       lg$info("Evaluating %i configuration(s)", nrow(xdt))
-      ydt = self$objective$eval_many(xss_trafoed)
+
+      is_rfundt = inherits(self$objective, "ObjectiveRFunDt")
+      # calculate the x as (trafoed) domain only if needed
+      if (self$search_space$has_trafo || self$archive$store_x_domain || !is_rfundt) {
+        xss_trafoed = transform_xdt_to_xss(xdt, self$search_space)
+      } else {
+        xss_trafoed = NULL
+      }
+
+      # if no trafos, and objective evals dt directly we go a shortcut
+      if (is_rfundt && !self$search_space$has_trafo) {
+        ydt = self$objective$eval_dt(xdt[, self$search_space$ids(), with = FALSE])
+      } else {
+        ydt = self$objective$eval_many(xss_trafoed)
+      }
+
       self$archive$add_evals(xdt, xss_trafoed, ydt)
       lg$info("Result of batch %i:", self$archive$n_batch)
       lg$info(capture.output(print(cbind(xdt, ydt),
         class = FALSE, row.names = FALSE, print.keys = FALSE)))
-      return(invisible(ydt))
+      return(invisible(ydt[, self$archive$cols_y, with = FALSE]))
     },
 
     #' @description
@@ -137,7 +184,7 @@ OptimInstance = R6Class("OptimInstance",
     #'
     #' @return Objective value as `numeric(1)`, negated for maximization problems.
     objective_function = function(x) {
-      private$.objective_function(x, self, private$.objective_multiplicator)
+      private$.objective_function(x, self, self$objective_multiplicator)
     }
   ),
 
@@ -170,9 +217,7 @@ OptimInstance = R6Class("OptimInstance",
   private = list(
     .result = NULL,
 
-    .objective_function = NULL,
-
-    .objective_multiplicator = NULL
+    .objective_function = NULL
   )
 )
 

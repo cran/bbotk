@@ -11,6 +11,7 @@
 #' of the [OptimInstance] at the end in order to store the best point  and its
 #' estimated performance vector.
 #'
+#' @template section_progress_bars
 #' @export
 Optimizer = R6Class("Optimizer",
   public = list(

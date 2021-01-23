@@ -11,7 +11,7 @@ opts()
 
 ## -----------------------------------------------------------------------------
 fun = function(xs) {
-  - (xs[[1]] - 2)^2 - (xs[[2]] + 3)^2 + 10
+  c(y = - (xs[[1]] - 2)^2 - (xs[[2]] + 3)^2 + 10)
 }
 
 ## -----------------------------------------------------------------------------
@@ -67,11 +67,11 @@ instance$result_x_domain
 instance$result_y
 
 ## -----------------------------------------------------------------------------
-instance$archive$data()
+as.data.table(instance$archive)
 
 ## -----------------------------------------------------------------------------
 fun_volume = function(xs) {
-  - (xs$h * xs$w * xs$d)
+  c(y = - (xs$h * xs$w * xs$d))
 }
 domain = ParamSet$new(list(
   ParamDbl$new("h", lower = 0),
@@ -120,7 +120,7 @@ inst$is_terminated = FALSE
 inst$terminator = trm("none")
 xvals = data.table(h = c(0.6666, 0.6667), w = c(0.6666, 0.6667))
 inst$eval_batch(xdt = xvals)
-tail(inst$archive$data())
+tail(as.data.table(instance$archive))
 
 ## -----------------------------------------------------------------------------
 inst$archive$best()

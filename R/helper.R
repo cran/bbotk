@@ -62,14 +62,13 @@ optimize_default = function(inst, self, private) {
   inst$archive$start_time = Sys.time()
   # start optimization
   lg$info("Starting to optimize %i parameter(s) with '%s' and '%s'",
-    inst$search_space$length, self$format(), inst$terminator$format())
+    inst$search_space$length, self$format(), inst$terminator$format(with_params = TRUE))
   tryCatch({
     private$.optimize(inst)
   }, terminated_error = function(cond) {
   })
   private$.assign_result(inst)
-  lg$info("Finished optimizing after %i evaluation(s)",
-    inst$archive$n_evals)
+  lg$info("Finished optimizing after %i evaluation(s)", inst$archive$n_evals)
   lg$info("Result:")
   lg$info(capture.output(print(
     inst$result, lass = FALSE, row.names = FALSE, print.keys = FALSE)))
@@ -115,4 +114,33 @@ assign_result_default = function(inst) {
 #' @export
 mult_max_to_min = function(codomain) {
   ifelse(map_lgl(codomain$tags, has_element, "minimize"), 1, -1)
+}
+
+
+get_private = function(x) {
+    x[[".__enclos_env__"]][["private"]]
+}
+
+#' @title Get start values for optimizers.
+#' @description
+#' Returns a named numeric vector with start
+#' values for optimizers.
+#'
+#' @param search_space [ParamSet].
+#' @param type (`character(1)`)\cr
+#' `random` start values or `center` of search space?
+#'
+#' @return named 'numeric()'
+#'
+#' @keywords internal
+search_start = function(search_space, type = "random") {
+  assert_choice(type, c("random", "center"))
+  if(type == "random") {
+    unlist(generate_design_random(search_space, 1)$data[1,])
+  } else if (type == "center") {
+    if(!all(search_space$storage_type == "numeric")) {
+      stop("Cannot generate center values of non-numeric parameters.")
+    }
+    (search_space$upper + search_space$lower) / 2
+  }
 }

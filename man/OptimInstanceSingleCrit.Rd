@@ -42,7 +42,13 @@ point on.
 \subsection{Method \code{new()}}{
 Creates a new instance of this \link[R6:R6Class]{R6} class.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{OptimInstanceSingleCrit$new(objective, search_space = NULL, terminator)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{OptimInstanceSingleCrit$new(
+  objective,
+  search_space = NULL,
+  terminator,
+  keep_evals = "all",
+  check_values = TRUE
+)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -51,11 +57,20 @@ Creates a new instance of this \link[R6:R6Class]{R6} class.
 \item{\code{objective}}{(\link{Objective}).}
 
 \item{\code{search_space}}{(\link[paradox:ParamSet]{paradox::ParamSet})\cr
-Specifies the search space for the \link{Optimizer}.
-The \link[paradox:ParamSet]{paradox::ParamSet} describes either a subset of the \code{domain} of the \link{Objective} or it describes a set of parameters together with a \code{trafo} function that transforms values from the search space to values of the domain.
-Depending on the context, this value defaults to the domain of the objective.}
+Specifies the search space for the \link{Optimizer}. The \link[paradox:ParamSet]{paradox::ParamSet}
+describes either a subset of the \code{domain} of the \link{Objective} or it describes
+a set of parameters together with a \code{trafo} function that transforms values
+from the search space to values of the domain. Depending on the context, this
+value defaults to the domain of the objective.}
 
 \item{\code{terminator}}{(\link{Terminator}).}
+
+\item{\code{keep_evals}}{(\code{character(1)})\cr
+Keep \code{all} or only \code{best} evaluations in archive?}
+
+\item{\code{check_values}}{(\code{logical(1)})\cr
+Should x-values that are added to the archive be checked for validity?
+Search space that is logged into archive.}
 }
 \if{html}{\out{</div>}}
 }
