@@ -116,7 +116,6 @@ obj$eval(inst$result_x_domain)
 ## -----------------------------------------------------------------------------
 library(data.table)
 
-inst$is_terminated = FALSE
 inst$terminator = trm("none")
 xvals = data.table(h = c(0.6666, 0.6667), w = c(0.6666, 0.6667))
 inst$eval_batch(xdt = xvals)

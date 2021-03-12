@@ -27,7 +27,7 @@
 #' `Terminator` subclasses can overwrite `.status()` to support progress bars
 #' via the package \CRANpkg{progressr}. The method must return the maximum
 #' number of steps (`max_steps`) and the currently achieved number of steps
-#' (`current_steps`) as a named integer vecor.
+#' (`current_steps`) as a named integer vector.
 #'
 #' @family Terminator
 #' @template param_archive
@@ -96,6 +96,7 @@ Terminator = R6Class("Terminator",
     #' time-based, the reaming runtime is `Inf`.
     #' @return `integer(1)`.
     remaining_time = function(archive) {
+      assert_r6(archive, "Archive")
       if (isTRUE(self$unit == "seconds")) {
         status = self$status(archive)
         unname(status["max_steps"] - status["current_steps"])

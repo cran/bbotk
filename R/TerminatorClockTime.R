@@ -32,8 +32,7 @@ TerminatorClockTime = R6Class("TerminatorClockTime",
         check_class(x, "POSIXct")
       }
       ps = ParamSet$new(list(
-        ParamUty$new("stop_time", tags = "required",
-          custom_check = custom_check)
+        ParamUty$new("stop_time", tags = "required", custom_check = custom_check)
       ))
       super$initialize(param_set = ps, properties = c("single-crit", "multi-crit"))
       self$unit = "seconds"
@@ -44,6 +43,7 @@ TerminatorClockTime = R6Class("TerminatorClockTime",
     #' otherwise.
     #' @return `logical(1)`.
     is_terminated = function(archive) {
+      assert_r6(archive, "Archive")
       return(Sys.time() >= self$param_set$values$stop_time)
     }
   ),

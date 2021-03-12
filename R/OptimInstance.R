@@ -26,9 +26,6 @@ OptimInstance = R6Class("OptimInstance",
     #' @field terminator ([Terminator]).
     terminator = NULL,
 
-    #' @field is_terminated (`logical(1)`).
-    is_terminated = FALSE,
-
     #' @field archive ([Archive]).
     archive = NULL,
 
@@ -126,12 +123,10 @@ OptimInstance = R6Class("OptimInstance",
     eval_batch = function(xdt) {
       self$progressor$update(self$terminator, self$archive)
 
-      if (self$is_terminated || self$terminator$is_terminated(self$archive)) {
-        self$is_terminated = TRUE
-        stop(terminated_error(self))
-      }
+      if (self$is_terminated) stop(terminated_error(self))
 
-      assert_data_table(xdt)
+      assert_data_table(xdt, min.rows = 1)
+      assert_names(colnames(xdt), must.include = self$search_space$ids())
 
       lg$info("Evaluating %i configuration(s)", nrow(xdt))
 
@@ -185,6 +180,14 @@ OptimInstance = R6Class("OptimInstance",
     #' @return Objective value as `numeric(1)`, negated for maximization problems.
     objective_function = function(x) {
       private$.objective_function(x, self, self$objective_multiplicator)
+    },
+
+    #' @description
+    #' Reset terminator and clear all evaluation results from archive and results.
+    clear = function() {
+      self$archive$clear()
+      private$.result = NULL
+      self$progressor = Progressor$new()
     }
   ),
 
@@ -211,6 +214,11 @@ OptimInstance = R6Class("OptimInstance",
     #' Optimal outcome.
     result_y = function() {
       unlist(private$.result[, self$objective$codomain$ids(), with = FALSE])
+    },
+
+    #' @field is_terminated (`logical(1)`).
+    is_terminated = function() {
+      self$terminator$is_terminated(self$archive)
     }
   ),
 

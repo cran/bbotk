@@ -126,3 +126,9 @@ test_that("OptimInstaceSingleCrit does not work with codomain > 1", {
     terminator = trm("none")), "Codomain > 1")
 })
 
+test_that("OptimInstanceSingleCrit$eval_batch() throws and error if columns are missing", {
+    inst = MAKE_INST_2D(20L)
+    expect_error(inst$eval_batch(data.table(x1= 0)),
+      regexp = "Assertion on 'colnames(xdt)' failed: Must include the elements {x1,x2}.",
+      fixed = TRUE)
+})
