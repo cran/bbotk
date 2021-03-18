@@ -1,3 +1,7 @@
+# bbotk 0.3.2
+
+* Internal changes.
+
 # bbotk 0.3.1
 
 * `OptimInstance$clear()` methods resets the instance.

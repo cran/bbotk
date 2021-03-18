@@ -1,6 +1,6 @@
-637c68384012873b43732a810b50cfa9 *DESCRIPTION
+235ab957abcb7d50cd35c338c94ae901 *DESCRIPTION
 f577691007a007162d59db0024e9e64d *NAMESPACE
-211de681c248b7d1a14627c1cc602906 *NEWS.md
+d76554173174b34cf21c4c5411c2244c *NEWS.md
 954d4e15f25813eaf3748fc26370aae7 *R/Archive.R
 29c7c1c2b279e17786b06f23499e3c19 *R/ArchiveBest.R
 7b72f10c1e48eb7cb767e3f00012b69a *R/Objective.R
@@ -35,11 +35,11 @@ a2e6e82e6e3bd385039280c2ab881e2c *R/bibentries.R
 99a38231069e1421be2728ccc67d2b3c *R/sugar.R
 db2ff0abfab2ea99243562bfcca0d46a *R/zzz.R
 2696a3865ea08aca6576fc31404df3cf *README.md
-79b86adedd9804aa55f6c610aa095229 *build/partial.rdb
+a4382a9d2d3115340cfae0a57d9fd93d *build/partial.rdb
 51a3c90f2578773a4c8f2fa3c4d9e653 *build/vignette.rds
 c1a1c962e141d8b8dfd5d41e70d63ee3 *inst/doc/bbotk.R
 3a07e6d3fc07883d87414a7f94b0f1e4 *inst/doc/bbotk.Rmd
-1ee7a2c8a91c1c90f27f68e15fd57bf1 *inst/doc/bbotk.html
+4253c0f4736f239eba94ae2476a3b4d8 *inst/doc/bbotk.html
 e10a223a8a92339058b4c361459c5139 *man/Archive.Rd
 15cbcf58bbf4530cdf0792d8c91e9924 *man/ArchiveBest.Rd
 00ffaa2a3a2652bc1bd3e229dd4150ea *man/Objective.Rd
@@ -99,7 +99,7 @@ ea253142f61e3339f2c38efd1ca659bd *tests/testthat/test_OptimizerNLoptr.R
 0467858a21931de04e464dcbb3d20557 *tests/testthat/test_OptimizerRandomSearch.R
 9b2449cd8e52e69cf1820f0b8b39a64c *tests/testthat/test_Progressor.R
 c2daf2565615d22ca18b96bc9905d6df *tests/testthat/test_TerminatorClockTime.R
-d0532e5aff935c1e3560bb39d233a5aa *tests/testthat/test_TerminatorCombo.R
+6ebbbba44bd5bf180265e365b964391c *tests/testthat/test_TerminatorCombo.R
 56b8f7469b7e91720c370867cda83177 *tests/testthat/test_TerminatorEvals.R
 48b47361398ea89dcb95eece2f922e67 *tests/testthat/test_TerminatorNone.R
 86291796988c0faaca3b1f0b8af409d0 *tests/testthat/test_TerminatorPerfReached.R
