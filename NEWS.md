@@ -1,3 +1,11 @@
+# bbotk 0.4.0
+
+* Allows empty search space and domain.
+* Extended `TerminatorEvals` with an additional hyperparameter `k` to define the
+  budget depending on the dimension of the search space.
+* Adds `bb_optimize()` function for quick optimization.
+* Adds `OptimizerIrace` from irace package.
+
 # bbotk 0.3.2
 
 * Internal changes.
@@ -11,7 +19,7 @@
 # bbotk 0.3.0
 
 * Improved `TerminatorPerfRearched` documentation.
-* Added `check_values` flag in `OptimInstance`, `OptimInstanceSingleCrit`, 
+* Added `check_values` flag in `OptimInstance`, `OptimInstanceSingleCrit`,
   `OptimInstanceMultiCrit`, `ObjectiveRFun` and `ObjectiveRFunDt`.
 * `Archive$data` is a public field now.
 * Renamed `m` parameter to `batch` in `Archive$best()`.
@@ -38,4 +46,3 @@
 # bbotk 0.2
 
 * First version of the Black-Box Optimization Toolkit
-

@@ -49,10 +49,16 @@ OptimInstance = R6Class("OptimInstance",
 
       assert_choice(keep_evals, c("all", "best"))
       self$objective = assert_r6(objective, "Objective")
-      self$search_space = if (is.null(search_space)) {
+
+      domain_search_space  = self$objective$domain$search_space()
+      self$search_space = if (is.null(search_space) && domain_search_space$length == 0) {
         self$objective$domain
-      } else {
+      } else if (is.null(search_space) && domain_search_space$length > 0) {
+        domain_search_space
+      } else if (!is.null(search_space) && domain_search_space$length == 0) {
         assert_param_set(search_space)
+      } else {
+        stop("If the domain contains TuneTokens, you cannot supply a search_space.")
       }
       self$terminator = assert_terminator(terminator, self)
 
@@ -77,8 +83,6 @@ OptimInstance = R6Class("OptimInstance",
         private$.objective_function = objective_function
       }
       self$objective_multiplicator = mult_max_to_min(self$objective$codomain)
-
-      self$progressor = Progressor$new()
     },
 
     #' @description
@@ -121,25 +125,28 @@ OptimInstance = R6Class("OptimInstance",
     #' the *search space* of the [OptimInstance] object. Can contain additional
     #' columns for extra information.
     eval_batch = function(xdt) {
-      self$progressor$update(self$terminator, self$archive)
+      # update progressor
+      if (!is.null(self$progressor)) self$progressor$update(self$terminator, self$archive)
 
       if (self$is_terminated) stop(terminated_error(self))
-
-      assert_data_table(xdt, min.rows = 1)
+      assert_data_table(xdt)
       assert_names(colnames(xdt), must.include = self$search_space$ids())
 
-      lg$info("Evaluating %i configuration(s)", nrow(xdt))
+      lg$info("Evaluating %i configuration(s)", max(1, nrow(xdt)))
 
       is_rfundt = inherits(self$objective, "ObjectiveRFunDt")
       # calculate the x as (trafoed) domain only if needed
-      if (self$search_space$has_trafo || self$archive$store_x_domain || !is_rfundt) {
+      if (self$search_space$has_trafo || self$search_space$has_deps || self$archive$store_x_domain || !is_rfundt) {
         xss_trafoed = transform_xdt_to_xss(xdt, self$search_space)
       } else {
         xss_trafoed = NULL
       }
-
-      # if no trafos, and objective evals dt directly we go a shortcut
-      if (is_rfundt && !self$search_space$has_trafo) {
+      
+      # eval if search space is empty
+      if (nrow(xdt) == 0) {
+        ydt = self$objective$eval_many(list(list()))
+      # if no trafos, no deps and objective evals dt directly, we go a shortcut
+      } else if (is_rfundt && !self$search_space$has_trafo && !self$search_space$has_deps) {
         ydt = self$objective$eval_dt(xdt[, self$search_space$ids(), with = FALSE])
       } else {
         ydt = self$objective$eval_many(xss_trafoed)
@@ -188,6 +195,7 @@ OptimInstance = R6Class("OptimInstance",
       self$archive$clear()
       private$.result = NULL
       self$progressor = Progressor$new()
+      invisible(self)
     }
   ),
 

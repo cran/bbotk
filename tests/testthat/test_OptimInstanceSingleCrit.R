@@ -99,7 +99,7 @@ test_that("objective_function works", {
   y = inst$objective_function(1)
   expect_equal(y, c(y = 1))
 
-  obj = ObjectiveRFun$new(fun = FUN_1D, domain = PS_1D_domain, codomain = ParamSet$new(list(ParamDbl$new("y", tags = "maximize"))))
+  obj = ObjectiveRFun$new(fun = FUN_1D, domain = PS_1D_domain, codomain = ps(y = p_dbl(tags = "maximize")))
   inst = MAKE_INST(objective = obj, search_space = PS_1D, terminator = terminator)
   y = inst$objective_function(1)
   expect_equal(y, c(y = -1))
@@ -108,10 +108,10 @@ test_that("objective_function works", {
     upper = inst$search_space$upper)
   expect_list(z, any.missing = FALSE, names = "named", len = 2L)
 
-  search_space = ParamSet$new(list(
-    ParamLgl$new("x1"),
-    ParamDbl$new("x2", lower = -1, upper = 1)
-  ))
+  search_space = ps(
+    x1 = p_lgl(),
+    x2 = p_dbl(lower = -1, upper = 1)
+  )
   inst = MAKE_INST(objective = obj, search_space = search_space, terminator = terminator)
   expect_error(inst$objective_function(1), "objective_function can only")
 })
@@ -129,6 +129,87 @@ test_that("OptimInstaceSingleCrit does not work with codomain > 1", {
 test_that("OptimInstanceSingleCrit$eval_batch() throws and error if columns are missing", {
     inst = MAKE_INST_2D(20L)
     expect_error(inst$eval_batch(data.table(x1= 0)),
-      regexp = "Assertion on 'colnames(xdt)' failed: Must include the elements {x1,x2}.",
+      regexp = "include the elements {x1,x2}.",
       fixed = TRUE)
+})
+
+test_that("domain, search_space and TuneToken work", {
+
+  domain = ps(
+    x1 = p_dbl(-10, 10),
+    x2 = p_dbl(-5, 5)
+  )
+
+  codomain = ps(
+   y = p_dbl(tags = "maximize")
+  )
+
+  objective = Objective$new(
+    domain = domain,
+    codomain = codomain
+  )
+
+  # only domain
+  instance = OptimInstanceSingleCrit$new(
+    objective = objective,
+    terminator = trm("none")
+  )
+
+  expect_equal(domain, instance$search_space)
+
+  # search_space and domain
+  search_space = ps(
+    x1 = p_dbl(-10, 10)
+  )
+
+  instance = OptimInstanceSingleCrit$new(
+    objective = objective,
+    terminator = trm("none"),
+    search_space = search_space
+  )
+
+  expect_equal(search_space, instance$search_space)
+
+  # TuneToken
+  domain$values$x1 = to_tune()
+
+  objective = Objective$new(
+    domain = domain,
+    codomain = codomain
+  )
+
+   instance = OptimInstanceSingleCrit$new(
+    objective = objective,
+    terminator = trm("none"),
+  )
+
+  expect_equal(domain$search_space(), instance$search_space)
+
+  # TuneToken and search_space
+  expect_error(OptimInstanceSingleCrit$new(objective = objective, terminator = trm("none"), search_space = search_space),
+    regexp = "If the domain contains TuneTokens, you cannot supply a search_space")
+})
+
+test_that("OptimInstanceSingleCrit works with empty search space", {
+  fun = function(xs) {
+    c(y = 10 + rnorm(1))
+  }
+  domain = ps()
+  codomain = ps(y = p_dbl(tags = "minimize"))
+
+  # objective
+  objective = ObjectiveRFun$new(fun, domain, codomain)
+  expect_numeric(objective$eval(list()))
+
+  # instance
+  instance = OptimInstanceSingleCrit$new(objective, terminator = trm("evals", n_evals = 20))
+  instance$eval_batch(data.table())
+  expect_data_table(instance$archive$data, nrows = 1)
+
+  # optimizer
+  instance = OptimInstanceSingleCrit$new(objective, terminator = trm("evals", n_evals = 20))
+  optimizer = opt("random_search")
+  optimizer$optimize(instance)
+  expect_data_table(instance$archive$data, nrows = 20)
+  expect_equal(instance$result$x_domain[[1]], list())
 })
