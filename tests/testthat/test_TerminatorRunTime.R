@@ -19,12 +19,10 @@ test_that("max and current works", {
   Sys.sleep(1)
 
   expect_equal(inst$terminator$status(inst$archive)["max_steps"], c("max_steps" = 3))
-  expect_equal(inst$terminator$status(inst$archive)["current_steps"], c("current_steps" = 1), tolerance = 1)
-  expect_equal(inst$terminator$remaining_time(inst$archive), 2, tolerance = 1)
 })
 
-test_that("TerminatorRunTime works with empty archive" ,{
+test_that("TerminatorRunTime works with empty archive", {
   terminator = TerminatorRunTime$new()
-  archive = Archive$new(ps(x = p_dbl()), ps(y = p_dbl()))
+  archive = Archive$new(ps(x = p_dbl()), ps(y = p_dbl(tags = "minimize")))
   expect_false(terminator$is_terminated(archive))
 })

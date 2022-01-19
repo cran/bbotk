@@ -1,6 +1,6 @@
 Package: bbotk
 Title: Black-Box Optimization Toolkit
-Version: 0.4.0
+Version: 0.5.0
 Authors@R: 
     c(person(given = "Marc",
              family = "Becker",
@@ -39,9 +39,9 @@ URL: https://bbotk.mlr-org.com, https://github.com/mlr-org/bbotk
 BugReports: https://github.com/mlr-org/bbotk/issues
 Depends: paradox (>= 0.7.0), R (>= 3.1.0)
 Imports: checkmate (>= 2.0.0), data.table, lgr, methods, mlr3misc (>=
-        0.7.0), R6
-Suggests: adagio, GenSA, irace, knitr, nloptr, progressr, rmarkdown,
-        testthat (>= 3.0.0)
+        0.10.0), R6
+Suggests: adagio, emoa, GenSA, irace, knitr, nloptr, progressr,
+        rmarkdown, testthat (>= 3.0.0)
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 Config/testthat/parallel: false
@@ -49,8 +49,8 @@ Encoding: UTF-8
 Language: en-US
 NeedsCompilation: yes
 RoxygenNote: 7.1.2
-Collate: 'Archive.R' 'ArchiveBest.R' 'Objective.R' 'ObjectiveRFun.R'
-        'ObjectiveRFunDt.R' 'OptimInstance.R'
+Collate: 'Archive.R' 'ArchiveBest.R' 'Codomain.R' 'Objective.R'
+        'ObjectiveRFun.R' 'ObjectiveRFunDt.R' 'OptimInstance.R'
         'OptimInstanceMultiCrit.R' 'OptimInstanceSingleCrit.R'
         'mlr_optimizers.R' 'Optimizer.R' 'OptimizerCmaes.R'
         'OptimizerDesignPoints.R' 'OptimizerGenSA.R'
@@ -61,8 +61,9 @@ Collate: 'Archive.R' 'ArchiveBest.R' 'Objective.R' 'ObjectiveRFun.R'
         'TerminatorPerfReached.R' 'TerminatorRunTime.R'
         'TerminatorStagnation.R' 'TerminatorStagnationBatch.R'
         'assertions.R' 'bb_optimize.R' 'bbotk_reflections.R'
-        'bibentries.R' 'helper.R' 'helper_irace.R' 'sugar.R' 'zzz.R'
-Packaged: 2021-09-13 13:45:49 UTC; marc
+        'bibentries.R' 'helper.R' 'helper_irace.R' 'nds_selection.R'
+        'sugar.R' 'zzz.R'
+Packaged: 2022-01-19 19:01:12 UTC; marc
 Author: Marc Becker [cre, aut] (<https://orcid.org/0000-0002-8115-0400>),
   Jakob Richter [aut] (<https://orcid.org/0000-0003-4481-5554>),
   Michel Lang [aut] (<https://orcid.org/0000-0001-9754-0393>),
@@ -71,4 +72,4 @@ Author: Marc Becker [cre, aut] (<https://orcid.org/0000-0002-8115-0400>),
   Olaf Mersmann [ctb]
 Maintainer: Marc Becker <marcbecker@posteo.de>
 Repository: CRAN
-Date/Publication: 2021-09-13 15:50:08 UTC
+Date/Publication: 2022-01-19 22:02:45 UTC

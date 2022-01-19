@@ -46,12 +46,11 @@ Objective = R6Class("Objective",
     #'
     #' @param id (`character(1)`).
     #' @param properties (`character()`).
-    initialize = function(id = "f", properties = character(), domain,
-      codomain = ps(y = p_dbl(tags = "minimize")),
+    initialize = function(id = "f", properties = character(), domain, codomain = ps(y = p_dbl(tags = "minimize")),
       constants = ps(), check_values = TRUE) {
       self$id = assert_string(id)
       self$domain = assert_param_set(domain)
-      self$codomain = assert_codomain(codomain)
+      self$codomain = Codomain$new(assert_param_set(codomain)$params)
       assert_names(self$domain$ids(), disjunct.from = self$codomain$ids())
       assert_names(self$domain$ids(), disjunct.from = c("x_domain", "timestamp", "batch_nr"))
       assert_names(self$codomain$ids(), disjunct.from = c("x_domain", "timestamp", "batch_nr"))
@@ -122,9 +121,7 @@ Objective = R6Class("Objective",
     eval_many = function(xss) {
       if (self$check_values) lapply(xss, self$domain$assert)
       res = invoke(private$.eval_many, xss, .args = self$constants$values)
-      if (self$check_values) {
-        self$codomain$assert_dt(res[, self$codomain$ids(), with = FALSE])
-      }
+      if (self$check_values) self$codomain$assert_dt(res[, self$codomain$ids(), with = FALSE])
       return(res)
     },
 
@@ -146,7 +143,7 @@ Objective = R6Class("Objective",
 
     #' @field ydim (`integer(1)`)\cr
     #' Dimension of codomain.
-    ydim = function() self$codomain$length
+    ydim = function() self$codomain$target_length
   ),
 
   private = list(
@@ -157,11 +154,18 @@ Objective = R6Class("Objective",
     .eval_many = function(xss, ...) {
       res = map_dtr(xss, function(xs) {
         ys = self$eval(xs)
-        as.data.table(lapply(ys, function(y) if (is.list(y)) list(y) else y))
+        as.data.table(lapply(ys, function(y) if (is.list(y) && length(y) > 1) list(y) else y))
       })
-      # to keep it simple we expect the order of the results to be right. extras keep their names
-      colnames(res)[seq_len(self$codomain$length)] = self$codomain$ids()
       return(res)
+    },
+
+    deep_clone = function(name, value) {
+      switch(name,
+        domain = value$clone(deep = TRUE),
+        codomain = value$clone(deep = TRUE),
+        constants = value$clone(deep = TRUE),
+        value
+      )
     }
   )
 )

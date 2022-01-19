@@ -5,11 +5,12 @@
 \title{Objective interface with custom R function}
 \description{
 Objective interface where the user can pass a custom R function that expects a list as input.
+If the return of the function is unnamed, it is named with the ids of the codomain.
 }
 \examples{
 # define objective function
 fun = function(xs) {
-  - (xs[[1]] - 2)^2 - (xs[[2]] + 3)^2 + 10
+  -(xs[[1]] - 2)^2 - (xs[[2]] + 3)^2 + 10
 }
 
 # set domain

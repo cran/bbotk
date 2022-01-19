@@ -20,8 +20,8 @@ test_that("OptimInstanceSingleCrit", {
   expect_identical(inst$archive$n_evals, 3L)
   expect_identical(inst$archive$n_batch, 1L)
   expect_null(inst$result)
-  inst$assign_result(xdt = xdt[2,], y = c(y = -10))
-  expect_equal(inst$result, cbind(xdt[2,], x_domain = list(list(x1 = 0, x2 = 0)), y = -10))
+  inst$assign_result(xdt = xdt[2, ], y = c(y = -10))
+  expect_equal(inst$result, cbind(xdt[2, ], x_domain = list(list(x1 = 0, x2 = 0)), y = -10))
 
   inst = MAKE_INST_2D(20L)
   optimizer = opt("random_search")
@@ -69,7 +69,7 @@ test_that("OptimInstance works with extras output", {
   fun_extra = function(xs) {
     y = sum(as.numeric(xs)^2)
     res = list(y = y, extra1 = runif(1), extra2 = list(a = runif(1), b = Sys.time()))
-    if (y > 0.5) { #sometimes add extras
+    if (y > 0.5) { # sometimes add extras
       res$extra3 = -y
     }
     return(res)
@@ -127,10 +127,10 @@ test_that("OptimInstaceSingleCrit does not work with codomain > 1", {
 })
 
 test_that("OptimInstanceSingleCrit$eval_batch() throws and error if columns are missing", {
-    inst = MAKE_INST_2D(20L)
-    expect_error(inst$eval_batch(data.table(x1= 0)),
-      regexp = "include the elements {x1,x2}.",
-      fixed = TRUE)
+  inst = MAKE_INST_2D(20L)
+  expect_error(inst$eval_batch(data.table(x1 = 0)),
+    regexp = "include the elements",
+    fixed = TRUE)
 })
 
 test_that("domain, search_space and TuneToken work", {
@@ -141,7 +141,7 @@ test_that("domain, search_space and TuneToken work", {
   )
 
   codomain = ps(
-   y = p_dbl(tags = "maximize")
+    y = p_dbl(tags = "maximize")
   )
 
   objective = Objective$new(
@@ -178,7 +178,7 @@ test_that("domain, search_space and TuneToken work", {
     codomain = codomain
   )
 
-   instance = OptimInstanceSingleCrit$new(
+  instance = OptimInstanceSingleCrit$new(
     objective = objective,
     terminator = trm("none"),
   )
@@ -212,4 +212,14 @@ test_that("OptimInstanceSingleCrit works with empty search space", {
   optimizer$optimize(instance)
   expect_data_table(instance$archive$data, nrows = 20)
   expect_equal(instance$result$x_domain[[1]], list())
+})
+
+test_that("deep clone works", {
+  inst = MAKE_INST_2D(20L)
+  inst_2 = inst$clone(deep = TRUE)
+
+  expect_different_address(inst$objective, inst_2$objective)
+  expect_different_address(inst$search_space, inst_2$search_space)
+  expect_different_address(inst$archive, inst_2$archive)
+  expect_different_address(inst$terminator, inst_2$terminator)
 })

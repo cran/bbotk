@@ -2,7 +2,8 @@
 #'
 #' @description
 #' Objective interface where the user can pass a custom R function that expects a list as input.
-#' 
+#' If the return of the function is unnamed, it is named with the ids of the codomain.
+#'
 #' @template param_domain
 #' @template param_codomain
 #' @template param_check_values
@@ -12,18 +13,18 @@
 #' @examples
 #' # define objective function
 #' fun = function(xs) {
-#'   - (xs[[1]] - 2)^2 - (xs[[2]] + 3)^2 + 10
+#'   -(xs[[1]] - 2)^2 - (xs[[2]] + 3)^2 + 10
 #' }
-#' 
+#'
 #' # set domain
 #' domain = ps(
 #'   x1 = p_dbl(-10, 10),
 #'   x2 = p_dbl(-5, 5)
 #' )
-#' 
+#'
 #' # set codomain
 #' codomain = ps(y = p_dbl(tags = "maximize"))
-#' 
+#'
 #' # create Objective object
 #' obfun = ObjectiveRFun$new(
 #'   fun = fun,
@@ -62,6 +63,7 @@ ObjectiveRFun = R6Class("ObjectiveRFun",
     eval = function(xs) {
       if (self$check_values) self$domain$assert(xs)
       res = invoke(private$.fun, xs, .args = self$constants$values)
+      if (!test_named(res)) names(res)[seq_len(self$codomain$length)] = self$codomain$ids()
       if (self$check_values) self$codomain$assert(as.list(res)[self$codomain$ids()])
       return(res)
     }
