@@ -1,3 +1,9 @@
+# bbotk 0.5.1
+
+* fix: Number of evaluations in log messages when search space is empty.
+* feat: Added a `as.data.table.DictionaryOptimizer` method.
+* feat: `$help()` method which opens manual page of an `Optimizer`.
+
 # bbotk 0.5.0
 
 * Adds non dominated sorting with hypervolume contribution to `Archive`.
