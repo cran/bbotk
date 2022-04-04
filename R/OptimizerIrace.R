@@ -158,6 +158,7 @@ OptimizerIrace = R6Class("OptimizerIrace",
         param_classes = c("ParamDbl", "ParamInt", "ParamFct", "ParamLgl"),
         properties = c("dependencies", "single-crit"),
         packages = "irace",
+        label = "Iterated Racing",
         man = "bbotk::mlr_optimizers_irace"
       )
     }
@@ -180,7 +181,7 @@ OptimizerIrace = R6Class("OptimizerIrace",
       inst$objective$constants$add(self$param_set$params[["instances"]])
 
       # run irace
-      res = irace::irace(scenario = scenario, parameters = paradox_to_irace(inst$search_space))
+      res = invoke(irace::irace, scenario = scenario, parameters = paradox_to_irace(inst$search_space), .opts = allow_partial_matching)
 
       # add race and step to archive
       iraceResults = NULL

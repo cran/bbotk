@@ -139,6 +139,7 @@ test_optimizer = function(instance, key, ..., real_evals) {
   optimizer = opt(key, ...)
   expect_class(optimizer, "Optimizer")
   expect_man_exists(optimizer$man)
+  expect_string(optimizer$label)
   optimizer$optimize(instance)
   archive = instance$archive
 
@@ -232,4 +233,20 @@ expect_man_exists = function(man) {
     matches = help.search(parts[2L], package = parts[1L], ignore.case = FALSE)
     checkmate::expect_data_frame(matches$matches, min.rows = 1L, info = "man page lookup")
   }
+}
+
+expect_dictionary = function(d, contains = NA_character_, min_items = 0L) {
+  checkmate::expect_r6(d, "Dictionary")
+  testthat::expect_output(print(d), "Dictionary")
+  keys = d$keys()
+
+  checkmate::expect_environment(d$items)
+  checkmate::expect_character(keys, any.missing = FALSE, min.len = min_items, min.chars = 1L)
+  if (!is.na(contains)) {
+    checkmate::expect_list(d$mget(keys), types = contains, names = "unique")
+  }
+  if (length(keys) >= 1L) {
+    testthat::expect_error(d$get(keys[1], 1), "names")
+  }
+  checkmate::expect_data_table(data.table::as.data.table(d), key = "key", nrows = length(keys))
 }
