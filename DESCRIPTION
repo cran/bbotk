@@ -1,6 +1,6 @@
 Package: bbotk
 Title: Black-Box Optimization Toolkit
-Version: 0.5.2
+Version: 0.5.3
 Authors@R: 
     c(person(given = "Marc",
              family = "Becker",
@@ -63,7 +63,7 @@ Collate: 'Archive.R' 'ArchiveBest.R' 'Codomain.R' 'Objective.R'
         'assertions.R' 'bb_optimize.R' 'bbotk_reflections.R'
         'bibentries.R' 'helper.R' 'helper_irace.R' 'nds_selection.R'
         'sugar.R' 'zzz.R'
-Packaged: 2022-04-04 11:14:54 UTC; marc
+Packaged: 2022-05-04 06:15:41 UTC; marc
 Author: Marc Becker [cre, aut] (<https://orcid.org/0000-0002-8115-0400>),
   Jakob Richter [aut] (<https://orcid.org/0000-0003-4481-5554>),
   Michel Lang [aut] (<https://orcid.org/0000-0001-9754-0393>),
@@ -72,4 +72,4 @@ Author: Marc Becker [cre, aut] (<https://orcid.org/0000-0002-8115-0400>),
   Olaf Mersmann [ctb]
 Maintainer: Marc Becker <marcbecker@posteo.de>
 Repository: CRAN
-Date/Publication: 2022-04-04 13:10:02 UTC
+Date/Publication: 2022-05-04 07:40:05 UTC
