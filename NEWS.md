@@ -1,3 +1,9 @@
+# bbotk 0.6.0
+
+* fix: `OptimizerIrace` did not work with parameters with multiple dependencies.
+* feat: Add new callback that backups the archive to disk to `mlr_callbacks`.
+* feat: Create custom callbacks with the `callback_optimization()` function.
+
 # bbotk 0.5.4
 
 * feat: Add `OptimizerFocusSearch` that performs a focusing random search.
