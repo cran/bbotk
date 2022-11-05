@@ -1,6 +1,6 @@
 Package: bbotk
 Title: Black-Box Optimization Toolkit
-Version: 0.6.0
+Version: 0.7.0
 Authors@R: 
     c(person(given = "Marc",
              family = "Becker",
@@ -51,20 +51,21 @@ NeedsCompilation: yes
 RoxygenNote: 7.2.1
 Collate: 'Archive.R' 'ArchiveBest.R' 'CallbackOptimization.R'
         'Codomain.R' 'ContextOptimization.R' 'Objective.R'
-        'ObjectiveRFun.R' 'ObjectiveRFunDt.R' 'OptimInstance.R'
-        'OptimInstanceMultiCrit.R' 'OptimInstanceSingleCrit.R'
-        'mlr_optimizers.R' 'Optimizer.R' 'OptimizerCmaes.R'
-        'OptimizerDesignPoints.R' 'OptimizerFocusSearch.R'
-        'OptimizerGenSA.R' 'OptimizerGridSearch.R' 'OptimizerIrace.R'
-        'OptimizerNLoptr.R' 'OptimizerRandomSearch.R' 'Progressor.R'
-        'mlr_terminators.R' 'Terminator.R' 'TerminatorClockTime.R'
-        'TerminatorCombo.R' 'TerminatorEvals.R' 'TerminatorNone.R'
+        'ObjectiveRFun.R' 'ObjectiveRFunDt.R' 'ObjectiveRFunMany.R'
+        'OptimInstance.R' 'OptimInstanceMultiCrit.R'
+        'OptimInstanceSingleCrit.R' 'mlr_optimizers.R' 'Optimizer.R'
+        'OptimizerCmaes.R' 'OptimizerDesignPoints.R'
+        'OptimizerFocusSearch.R' 'OptimizerGenSA.R'
+        'OptimizerGridSearch.R' 'OptimizerIrace.R' 'OptimizerNLoptr.R'
+        'OptimizerRandomSearch.R' 'Progressor.R' 'mlr_terminators.R'
+        'Terminator.R' 'TerminatorClockTime.R' 'TerminatorCombo.R'
+        'TerminatorEvals.R' 'TerminatorNone.R'
         'TerminatorPerfReached.R' 'TerminatorRunTime.R'
         'TerminatorStagnation.R' 'TerminatorStagnationBatch.R'
         'assertions.R' 'bb_optimize.R' 'bbotk_reflections.R'
-        'bibentries.R' 'helper.R' 'helper_irace.R' 'mlr_callbacks.R'
-        'nds_selection.R' 'reexport.R' 'sugar.R' 'zzz.R'
-Packaged: 2022-10-25 11:08:21 UTC; marc
+        'bibentries.R' 'helper.R' 'mlr_callbacks.R' 'nds_selection.R'
+        'reexport.R' 'sugar.R' 'zzz.R'
+Packaged: 2022-11-04 14:52:47 UTC; marc
 Author: Marc Becker [cre, aut] (<https://orcid.org/0000-0002-8115-0400>),
   Jakob Richter [aut] (<https://orcid.org/0000-0003-4481-5554>),
   Michel Lang [aut] (<https://orcid.org/0000-0001-9754-0393>),
@@ -73,4 +74,4 @@ Author: Marc Becker [cre, aut] (<https://orcid.org/0000-0002-8115-0400>),
   Olaf Mersmann [ctb]
 Maintainer: Marc Becker <marcbecker@posteo.de>
 Repository: CRAN
-Date/Publication: 2022-10-25 12:45:07 UTC
+Date/Publication: 2022-11-05 02:10:02 UTC

@@ -1,6 +1,6 @@
-59e1a960ae4ae7326321d66c9dd3e788 *DESCRIPTION
-8e4d764240429a938c464d1b23b3e82e *NAMESPACE
-fc8a4ce02256eb104e9476c6348048bc *NEWS.md
+45e27367434624d155af0e149564b275 *DESCRIPTION
+876dd86c9d1cc9fc3a302405d6d18e9c *NAMESPACE
+3dfb25b9c921bda888389e2cd011ee96 *NEWS.md
 bbeb59bdea8fedab6731647acab4272a *R/Archive.R
 dcba20f43b105ed9aee9cdb0f48ffa4c *R/ArchiveBest.R
 855392c6a0455b347e2fe9914be4ab32 *R/CallbackOptimization.R
@@ -8,7 +8,8 @@ ab7eeec4dec306c63bcb7d520211b55e *R/Codomain.R
 e4ad211784debdf6ec874a54088b88e1 *R/ContextOptimization.R
 2a1645b398dda3ad30ed2e9d92a0addc *R/Objective.R
 b211d2ed8a8902bcffd3d92ceec045b1 *R/ObjectiveRFun.R
-3716ae9d5d5f949250ebcd152174e0c2 *R/ObjectiveRFunDt.R
+8a019430f9d55e6ff13b02793cb3f415 *R/ObjectiveRFunDt.R
+6af339cb3dc2a39f5b09bc4d1a4432dc *R/ObjectiveRFunMany.R
 a5bd87e973f6abe9ada1f217f6187b8a *R/OptimInstance.R
 ba23d643e3d0e9c49ae64e5f87ec06f1 *R/OptimInstanceMultiCrit.R
 ddd76dde6759a74910828ecc4dacf70a *R/OptimInstanceSingleCrit.R
@@ -18,11 +19,11 @@ ddd76dde6759a74910828ecc4dacf70a *R/OptimInstanceSingleCrit.R
 6b3908d5f6cc2d9b6eb868b0d72da1a1 *R/OptimizerFocusSearch.R
 9020fb416f3c10374f509a7e056abd66 *R/OptimizerGenSA.R
 7bc47e4cc965a268fdf0d3ba0fe597b5 *R/OptimizerGridSearch.R
-58ce8100d329be99a838ae65f9c45de3 *R/OptimizerIrace.R
+80e7da2de07c3e6af2a8958377d703f7 *R/OptimizerIrace.R
 3546f462162973dd63c064680d20fbb0 *R/OptimizerNLoptr.R
 11628b1e6604cbbfc6b9794193bdc808 *R/OptimizerRandomSearch.R
 12bf2f5ce436dcd9055802ac0201a201 *R/Progressor.R
-9c28e5bab5f548f11977819aa2414b8f *R/Terminator.R
+9efb19b139866a48180a4e49786448be *R/Terminator.R
 2b423ed575d9b474f0646728c9be746f *R/TerminatorClockTime.R
 f36dea596b69b64e911c9033dd4eef48 *R/TerminatorCombo.R
 9b96f63cbe6cb3fb33f05c44bc9b48a3 *R/TerminatorEvals.R
@@ -35,8 +36,7 @@ de4a1ef83c0fdbde0dc091fdd64fc11f *R/assertions.R
 eda0d2dae793146fb5601cef028a9240 *R/bb_optimize.R
 09e4c4173d43bc18c68fee7d5035a33a *R/bbotk_reflections.R
 7718b0a4118a24f1767ec6dad5bb51d6 *R/bibentries.R
-402c233f42c0551df812b922f4c01f62 *R/helper.R
-3c28b294f14786cacc8a0b9ac25a7fbc *R/helper_irace.R
+1d0a5427f939f32660e4d388c994d4fa *R/helper.R
 5e2c93855fe5d19b2e8782da856ab631 *R/mlr_callbacks.R
 688e3997a39b0a8f04b7c39479f7dbd0 *R/mlr_optimizers.R
 6a9adae620a0ce58c8f12651f8ccdb0f *R/mlr_terminators.R
@@ -45,12 +45,12 @@ eda0d2dae793146fb5601cef028a9240 *R/bb_optimize.R
 b38b8d323258daebf2099b9d28d4187b *R/sugar.R
 4a8555d4f630eb18eafa3ace90094f4a *R/zzz.R
 17e5649815b9f4d3d093503b58dbd11a *README.md
-2ec091964ae0c2468600b981d737950e *build/partial.rdb
+7ca05585e19914322c7a07e10041fce4 *build/partial.rdb
 6b18502a7b75e72cc3fe8ff2e592f891 *build/vignette.rds
 aff34b097208cce20275a11d0faf03b6 *inst/WORDLIST
 af0e8bf4c8725c8b4d64ea73da721f96 *inst/doc/bbotk.R
 e61bc427c2d459ca4a5b9962c8835fc1 *inst/doc/bbotk.Rmd
-b727718231727030708f0b42363895dc *inst/doc/bbotk.html
+9c91a9627d09ce5e9e9da856613fb798 *inst/doc/bbotk.html
 773ac4f9a0b41524f57e224401217c72 *man/Archive.Rd
 5244ea4845e81eb10afcb9f8ec6bf8d7 *man/ArchiveBest.Rd
 4ba16d451c8e8f488a5fb385e68dc0bb *man/CallbackOptimization.Rd
@@ -59,6 +59,7 @@ b727718231727030708f0b42363895dc *inst/doc/bbotk.html
 dc2fe3c831a8bf4726bc2c55a30bf4c1 *man/Objective.Rd
 c519b87551433bb3feba224cc52da209 *man/ObjectiveRFun.Rd
 38f0aa22e8f60b7cd17f7f9e49a3559c *man/ObjectiveRFunDt.Rd
+3a6e0dcf2c8b1ed837625f643cf2065d *man/ObjectiveRFunMany.Rd
 c48ef88db95eba4279efa96d1f09b751 *man/OptimInstance.Rd
 cb783e612b00cac87633e63bdf1bd0a0 *man/OptimInstanceMultiCrit.Rd
 ed17a4c818596a8d93e4dd39d1708e31 *man/OptimInstanceSingleCrit.Rd
@@ -71,7 +72,7 @@ c1c76e093f2cac27c47d7310120d513d *man/bb_optimize.Rd
 861107ed9a049573073473527d57e8ec *man/bbotk.backup.Rd
 d8c396c0d379c8cbc6754f1204e2dc61 *man/bbotk_assertions.Rd
 33531d151f7ef631a369e13335bc7857 *man/bbotk_reflections.Rd
-bdc5dbdd2ec2d64ce52c7a3316ef19ce *man/branin.Rd
+7da55e7db3c93e232cee859f035a1a22 *man/branin.Rd
 b9ddd819bf38007f2bbb298bd005216a *man/callback_optimization.Rd
 9a59bae0f7b125d9a62a06e74121bd00 *man/is_dominated.Rd
 079933c82deb6bbdd49e86f714dff1ac *man/mlr_optimizers.Rd
@@ -80,7 +81,7 @@ d28e7b3993e8e8cec5b56c7b2ad80c69 *man/mlr_optimizers_cmaes.Rd
 1f98a270f668073316ee8274f31d53e2 *man/mlr_optimizers_focus_search.Rd
 b846fa37fc91f3c2d7fb221f80d88308 *man/mlr_optimizers_gensa.Rd
 679d8248725f200d08b3c38d5393933c *man/mlr_optimizers_grid_search.Rd
-21f7a92daa65a021be2af3515de0ab89 *man/mlr_optimizers_irace.Rd
+d3c99146c9cff7634e1b3de969dbc612 *man/mlr_optimizers_irace.Rd
 d76b4104aa35de092550292091179d27 *man/mlr_optimizers_nloptr.Rd
 4fe4517893bfc27f75f6f5145d7ad2be *man/mlr_optimizers_random_search.Rd
 3740814802dececc26dde24432911346 *man/mlr_terminators.Rd
@@ -110,7 +111,7 @@ ef73df6bfecd7921da81fd1eb58f78ef *tests/testthat/setup.R
 8f48492b10d84bdbc8395d3373f8bd37 *tests/testthat/test_Archive.R
 3e0ef7e42b8534c4be932107ae002071 *tests/testthat/test_ArchiveBest.R
 c0657303a933ddd80851d89b2d9d2c8c *tests/testthat/test_Callback.R
-dcf9a61d0a80c07045679b7cc1ea9fb1 *tests/testthat/test_Objective.R
+bd608cd44071ffcd22fc53cd6dbca76c *tests/testthat/test_Objective.R
 bad237ebef0e767a685c11dd95a23cc4 *tests/testthat/test_OptimInstanceMultiCrit.R
 19db76a1f018dcdb4e44100057331f19 *tests/testthat/test_OptimInstanceSingleCrit.R
 7e95e39c0d138e6b83fa701303387874 *tests/testthat/test_Optimizer.R
@@ -119,7 +120,7 @@ c3f85fdcf0529f52268f5ce5748c4ca1 *tests/testthat/test_OptimizerCmaes.R
 c28d5dc3705264eeada14a22d8095b69 *tests/testthat/test_OptimizerFocusSearch.R
 814837a0c3150896a01dad0df2ce034c *tests/testthat/test_OptimizerGenSA.R
 914dd6ec8b68a1d190af7c0c7386083d *tests/testthat/test_OptimizerGridSearch.R
-4d2b83069ef7b7b0e30426e1cbbaacda *tests/testthat/test_OptimizerIrace.R
+c3fecfdf4a9046ee397dc3352f2e8c24 *tests/testthat/test_OptimizerIrace.R
 4840ca623a5840b1256d828aa49efcf7 *tests/testthat/test_OptimizerNLoptr.R
 3a5b47ead9e8abda6b7cff0391f961a0 *tests/testthat/test_OptimizerRandomSearch.R
 b8482bced224b2f38b6b8245e41b257b *tests/testthat/test_Progressor.R

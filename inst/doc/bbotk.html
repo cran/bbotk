@@ -12,7 +12,7 @@
 
 <meta name="author" content="Jakob Richter" />
 
-<meta name="date" content="2022-10-25" />
+<meta name="date" content="2022-11-04" />
 
 <title>bbotk: A brief introduction</title>
 
@@ -356,7 +356,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">bbotk: A brief introduction</h1>
 <h4 class="author">Jakob Richter</h4>
-<h4 class="date">2022-10-25</h4>
+<h4 class="date">2022-11-04</h4>
 
 
 
@@ -450,91 +450,91 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a><span class="co">#&gt; * Packages: bbotk, GenSA</span></span></code></pre></div>
 <p>To start the optimization we have to call the <code>Optimizer</code> on the <code>OptimInstance</code>.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>optimizer<span class="op">$</span><span class="kw">optimize</span>(instance)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.237] [bbotk] Starting to optimize 2 parameter(s) with &#39;&lt;OptimizerGenSA&gt;&#39; and &#39;&lt;TerminatorCombo&gt; [any=TRUE]&#39;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.277] [bbotk] Evaluating 1 configuration(s)</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.292] [bbotk] Result of batch 1:</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.298] [bbotk]         x1        x2         y</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.298] [bbotk]  -4.689827 -1.278761 -37.71645</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.300] [bbotk] Evaluating 1 configuration(s)</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.312] [bbotk] Result of batch 2:</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.313] [bbotk]         x1        x2       y</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.313] [bbotk]  -5.930364 -4.400474 -54.852</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.316] [bbotk] Evaluating 1 configuration(s)</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.321] [bbotk] Result of batch 3:</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.322] [bbotk]        x1        x2         y</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.322] [bbotk]  7.170817 -1.519948 -18.92791</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.325] [bbotk] Evaluating 1 configuration(s)</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.330] [bbotk] Result of batch 4:</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.332] [bbotk]      x1        x2        y</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.332] [bbotk]  2.0452 -1.519948 7.807403</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.335] [bbotk] Evaluating 1 configuration(s)</span></span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.340] [bbotk] Result of batch 5:</span></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.342] [bbotk]      x1        x2       y</span></span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.342] [bbotk]  2.0452 -2.064742 9.12325</span></span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.344] [bbotk] Evaluating 1 configuration(s)</span></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.349] [bbotk] Result of batch 6:</span></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.351] [bbotk]      x1        x2       y</span></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.351] [bbotk]  2.0452 -2.064742 9.12325</span></span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.353] [bbotk] Evaluating 1 configuration(s)</span></span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.358] [bbotk] Result of batch 7:</span></span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.360] [bbotk]        x1        x2       y</span></span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.360] [bbotk]  2.045201 -2.064742 9.12325</span></span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.362] [bbotk] Evaluating 1 configuration(s)</span></span>
-<span id="cb10-32"><a href="#cb10-32" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.367] [bbotk] Result of batch 8:</span></span>
-<span id="cb10-33"><a href="#cb10-33" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.369] [bbotk]        x1        x2       y</span></span>
-<span id="cb10-34"><a href="#cb10-34" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.369] [bbotk]  2.045199 -2.064742 9.12325</span></span>
-<span id="cb10-35"><a href="#cb10-35" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.371] [bbotk] Evaluating 1 configuration(s)</span></span>
-<span id="cb10-36"><a href="#cb10-36" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.376] [bbotk] Result of batch 9:</span></span>
-<span id="cb10-37"><a href="#cb10-37" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.378] [bbotk]      x1        x2        y</span></span>
-<span id="cb10-38"><a href="#cb10-38" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.378] [bbotk]  2.0452 -2.064741 9.123248</span></span>
-<span id="cb10-39"><a href="#cb10-39" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.383] [bbotk] Evaluating 1 configuration(s)</span></span>
-<span id="cb10-40"><a href="#cb10-40" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.388] [bbotk] Result of batch 10:</span></span>
-<span id="cb10-41"><a href="#cb10-41" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.390] [bbotk]      x1        x2        y</span></span>
-<span id="cb10-42"><a href="#cb10-42" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.390] [bbotk]  2.0452 -2.064743 9.123252</span></span>
-<span id="cb10-43"><a href="#cb10-43" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.392] [bbotk] Evaluating 1 configuration(s)</span></span>
-<span id="cb10-44"><a href="#cb10-44" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.397] [bbotk] Result of batch 11:</span></span>
-<span id="cb10-45"><a href="#cb10-45" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.399] [bbotk]      x1        x2       y</span></span>
-<span id="cb10-46"><a href="#cb10-46" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.399] [bbotk]  1.9548 -3.935258 9.12325</span></span>
-<span id="cb10-47"><a href="#cb10-47" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.401] [bbotk] Evaluating 1 configuration(s)</span></span>
-<span id="cb10-48"><a href="#cb10-48" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.406] [bbotk] Result of batch 12:</span></span>
-<span id="cb10-49"><a href="#cb10-49" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.408] [bbotk]        x1        x2       y</span></span>
-<span id="cb10-50"><a href="#cb10-50" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.408] [bbotk]  1.954801 -3.935258 9.12325</span></span>
-<span id="cb10-51"><a href="#cb10-51" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.410] [bbotk] Evaluating 1 configuration(s)</span></span>
-<span id="cb10-52"><a href="#cb10-52" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.415] [bbotk] Result of batch 13:</span></span>
-<span id="cb10-53"><a href="#cb10-53" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.417] [bbotk]        x1        x2       y</span></span>
-<span id="cb10-54"><a href="#cb10-54" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.417] [bbotk]  1.954799 -3.935258 9.12325</span></span>
-<span id="cb10-55"><a href="#cb10-55" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.419] [bbotk] Evaluating 1 configuration(s)</span></span>
-<span id="cb10-56"><a href="#cb10-56" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.424] [bbotk] Result of batch 14:</span></span>
-<span id="cb10-57"><a href="#cb10-57" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.426] [bbotk]      x1        x2        y</span></span>
-<span id="cb10-58"><a href="#cb10-58" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.426] [bbotk]  1.9548 -3.935257 9.123252</span></span>
-<span id="cb10-59"><a href="#cb10-59" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.428] [bbotk] Evaluating 1 configuration(s)</span></span>
-<span id="cb10-60"><a href="#cb10-60" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.433] [bbotk] Result of batch 15:</span></span>
-<span id="cb10-61"><a href="#cb10-61" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.435] [bbotk]      x1        x2        y</span></span>
-<span id="cb10-62"><a href="#cb10-62" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.435] [bbotk]  1.9548 -3.935259 9.123248</span></span>
-<span id="cb10-63"><a href="#cb10-63" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.437] [bbotk] Evaluating 1 configuration(s)</span></span>
-<span id="cb10-64"><a href="#cb10-64" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.442] [bbotk] Result of batch 16:</span></span>
-<span id="cb10-65"><a href="#cb10-65" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.444] [bbotk]  x1 x2  y</span></span>
-<span id="cb10-66"><a href="#cb10-66" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.444] [bbotk]   2 -3 10</span></span>
-<span id="cb10-67"><a href="#cb10-67" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.446] [bbotk] Evaluating 1 configuration(s)</span></span>
-<span id="cb10-68"><a href="#cb10-68" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.451] [bbotk] Result of batch 17:</span></span>
-<span id="cb10-69"><a href="#cb10-69" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.453] [bbotk]        x1 x2  y</span></span>
-<span id="cb10-70"><a href="#cb10-70" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.453] [bbotk]  2.000001 -3 10</span></span>
-<span id="cb10-71"><a href="#cb10-71" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.455] [bbotk] Evaluating 1 configuration(s)</span></span>
-<span id="cb10-72"><a href="#cb10-72" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.460] [bbotk] Result of batch 18:</span></span>
-<span id="cb10-73"><a href="#cb10-73" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.462] [bbotk]        x1 x2  y</span></span>
-<span id="cb10-74"><a href="#cb10-74" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.462] [bbotk]  1.999999 -3 10</span></span>
-<span id="cb10-75"><a href="#cb10-75" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.464] [bbotk] Evaluating 1 configuration(s)</span></span>
-<span id="cb10-76"><a href="#cb10-76" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.472] [bbotk] Result of batch 19:</span></span>
-<span id="cb10-77"><a href="#cb10-77" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.473] [bbotk]  x1        x2  y</span></span>
-<span id="cb10-78"><a href="#cb10-78" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.473] [bbotk]   2 -2.999999 10</span></span>
-<span id="cb10-79"><a href="#cb10-79" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.476] [bbotk] Evaluating 1 configuration(s)</span></span>
-<span id="cb10-80"><a href="#cb10-80" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.481] [bbotk] Result of batch 20:</span></span>
-<span id="cb10-81"><a href="#cb10-81" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.482] [bbotk]  x1        x2  y</span></span>
-<span id="cb10-82"><a href="#cb10-82" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.482] [bbotk]   2 -3.000001 10</span></span>
-<span id="cb10-83"><a href="#cb10-83" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.489] [bbotk] Finished optimizing after 20 evaluation(s)</span></span>
-<span id="cb10-84"><a href="#cb10-84" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.490] [bbotk] Result:</span></span>
-<span id="cb10-85"><a href="#cb10-85" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.492] [bbotk]  x1 x2  x_domain  y</span></span>
-<span id="cb10-86"><a href="#cb10-86" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:20.492] [bbotk]   2 -3 &lt;list[2]&gt; 10</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.431] [bbotk] Starting to optimize 2 parameter(s) with &#39;&lt;OptimizerGenSA&gt;&#39; and &#39;&lt;TerminatorCombo&gt; [any=TRUE]&#39;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.498] [bbotk] Evaluating 1 configuration(s)</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.516] [bbotk] Result of batch 1:</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.522] [bbotk]         x1        x2         y</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.522] [bbotk]  -4.689827 -1.278761 -37.71645</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.525] [bbotk] Evaluating 1 configuration(s)</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.537] [bbotk] Result of batch 2:</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.538] [bbotk]         x1        x2       y</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.538] [bbotk]  -5.930364 -4.400474 -54.852</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.541] [bbotk] Evaluating 1 configuration(s)</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.546] [bbotk] Result of batch 3:</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.548] [bbotk]        x1        x2         y</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.548] [bbotk]  7.170817 -1.519948 -18.92791</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.551] [bbotk] Evaluating 1 configuration(s)</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.555] [bbotk] Result of batch 4:</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.557] [bbotk]      x1        x2        y</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.557] [bbotk]  2.0452 -1.519948 7.807403</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.560] [bbotk] Evaluating 1 configuration(s)</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.565] [bbotk] Result of batch 5:</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.566] [bbotk]      x1        x2       y</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.566] [bbotk]  2.0452 -2.064742 9.12325</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.569] [bbotk] Evaluating 1 configuration(s)</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.574] [bbotk] Result of batch 6:</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.575] [bbotk]      x1        x2       y</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.575] [bbotk]  2.0452 -2.064742 9.12325</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.578] [bbotk] Evaluating 1 configuration(s)</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.583] [bbotk] Result of batch 7:</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.585] [bbotk]        x1        x2       y</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.585] [bbotk]  2.045201 -2.064742 9.12325</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.587] [bbotk] Evaluating 1 configuration(s)</span></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.592] [bbotk] Result of batch 8:</span></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.594] [bbotk]        x1        x2       y</span></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.594] [bbotk]  2.045199 -2.064742 9.12325</span></span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.596] [bbotk] Evaluating 1 configuration(s)</span></span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.601] [bbotk] Result of batch 9:</span></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.603] [bbotk]      x1        x2        y</span></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.603] [bbotk]  2.0452 -2.064741 9.123248</span></span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.608] [bbotk] Evaluating 1 configuration(s)</span></span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.613] [bbotk] Result of batch 10:</span></span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.615] [bbotk]      x1        x2        y</span></span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.615] [bbotk]  2.0452 -2.064743 9.123252</span></span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.617] [bbotk] Evaluating 1 configuration(s)</span></span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.622] [bbotk] Result of batch 11:</span></span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.624] [bbotk]      x1        x2       y</span></span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.624] [bbotk]  1.9548 -3.935258 9.12325</span></span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.626] [bbotk] Evaluating 1 configuration(s)</span></span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.631] [bbotk] Result of batch 12:</span></span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.633] [bbotk]        x1        x2       y</span></span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.633] [bbotk]  1.954801 -3.935258 9.12325</span></span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.636] [bbotk] Evaluating 1 configuration(s)</span></span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.641] [bbotk] Result of batch 13:</span></span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.642] [bbotk]        x1        x2       y</span></span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.642] [bbotk]  1.954799 -3.935258 9.12325</span></span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.645] [bbotk] Evaluating 1 configuration(s)</span></span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.650] [bbotk] Result of batch 14:</span></span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.652] [bbotk]      x1        x2        y</span></span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.652] [bbotk]  1.9548 -3.935257 9.123252</span></span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.654] [bbotk] Evaluating 1 configuration(s)</span></span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.659] [bbotk] Result of batch 15:</span></span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.661] [bbotk]      x1        x2        y</span></span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.661] [bbotk]  1.9548 -3.935259 9.123248</span></span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.663] [bbotk] Evaluating 1 configuration(s)</span></span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.668] [bbotk] Result of batch 16:</span></span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.670] [bbotk]  x1 x2  y</span></span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.670] [bbotk]   2 -3 10</span></span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.673] [bbotk] Evaluating 1 configuration(s)</span></span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.678] [bbotk] Result of batch 17:</span></span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.679] [bbotk]        x1 x2  y</span></span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.679] [bbotk]  2.000001 -3 10</span></span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.682] [bbotk] Evaluating 1 configuration(s)</span></span>
+<span id="cb10-72"><a href="#cb10-72" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.687] [bbotk] Result of batch 18:</span></span>
+<span id="cb10-73"><a href="#cb10-73" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.688] [bbotk]        x1 x2  y</span></span>
+<span id="cb10-74"><a href="#cb10-74" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.688] [bbotk]  1.999999 -3 10</span></span>
+<span id="cb10-75"><a href="#cb10-75" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.691] [bbotk] Evaluating 1 configuration(s)</span></span>
+<span id="cb10-76"><a href="#cb10-76" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.698] [bbotk] Result of batch 19:</span></span>
+<span id="cb10-77"><a href="#cb10-77" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.700] [bbotk]  x1        x2  y</span></span>
+<span id="cb10-78"><a href="#cb10-78" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.700] [bbotk]   2 -2.999999 10</span></span>
+<span id="cb10-79"><a href="#cb10-79" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.703] [bbotk] Evaluating 1 configuration(s)</span></span>
+<span id="cb10-80"><a href="#cb10-80" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.708] [bbotk] Result of batch 20:</span></span>
+<span id="cb10-81"><a href="#cb10-81" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.710] [bbotk]  x1        x2  y</span></span>
+<span id="cb10-82"><a href="#cb10-82" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.710] [bbotk]   2 -3.000001 10</span></span>
+<span id="cb10-83"><a href="#cb10-83" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.717] [bbotk] Finished optimizing after 20 evaluation(s)</span></span>
+<span id="cb10-84"><a href="#cb10-84" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.718] [bbotk] Result:</span></span>
+<span id="cb10-85"><a href="#cb10-85" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.719] [bbotk]  x1 x2  x_domain  y</span></span>
+<span id="cb10-86"><a href="#cb10-86" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:45.719] [bbotk]   2 -3 &lt;list[2]&gt; 10</span></span>
 <span id="cb10-87"><a href="#cb10-87" aria-hidden="true"></a><span class="co">#&gt;    x1 x2  x_domain  y</span></span>
 <span id="cb10-88"><a href="#cb10-88" aria-hidden="true"></a><span class="co">#&gt; 1:  2 -3 &lt;list[2]&gt; 10</span></span></code></pre></div>
 <p>Note, that we did not specify the termination inside the optimizer. <code>bbotk</code> generally sets the termination of the optimizers to never terminate and instead breaks the code internally as soon as a termination criterion is fulfilled.</p>
@@ -557,26 +557,26 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <p>You can also access the whole history of evaluated points.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="kw">as.data.table</span>(instance<span class="op">$</span>archive)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a><span class="co">#&gt;            x1        x2          y           timestamp batch_nr x_domain_x1</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a><span class="co">#&gt;  1: -4.689827 -1.278761 -37.716445 2022-10-25 13:08:20        1   -4.689827</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a><span class="co">#&gt;  2: -5.930364 -4.400474 -54.851999 2022-10-25 13:08:20        2   -5.930364</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a><span class="co">#&gt;  3:  7.170817 -1.519948 -18.927907 2022-10-25 13:08:20        3    7.170817</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a><span class="co">#&gt;  4:  2.045200 -1.519948   7.807403 2022-10-25 13:08:20        4    2.045200</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true"></a><span class="co">#&gt;  5:  2.045200 -2.064742   9.123250 2022-10-25 13:08:20        5    2.045200</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true"></a><span class="co">#&gt;  6:  2.045200 -2.064742   9.123250 2022-10-25 13:08:20        6    2.045200</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true"></a><span class="co">#&gt;  7:  2.045201 -2.064742   9.123250 2022-10-25 13:08:20        7    2.045201</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true"></a><span class="co">#&gt;  8:  2.045199 -2.064742   9.123250 2022-10-25 13:08:20        8    2.045199</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true"></a><span class="co">#&gt;  9:  2.045200 -2.064741   9.123248 2022-10-25 13:08:20        9    2.045200</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true"></a><span class="co">#&gt; 10:  2.045200 -2.064743   9.123252 2022-10-25 13:08:20       10    2.045200</span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true"></a><span class="co">#&gt; 11:  1.954800 -3.935258   9.123250 2022-10-25 13:08:20       11    1.954800</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true"></a><span class="co">#&gt; 12:  1.954801 -3.935258   9.123250 2022-10-25 13:08:20       12    1.954801</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true"></a><span class="co">#&gt; 13:  1.954799 -3.935258   9.123250 2022-10-25 13:08:20       13    1.954799</span></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true"></a><span class="co">#&gt; 14:  1.954800 -3.935257   9.123252 2022-10-25 13:08:20       14    1.954800</span></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true"></a><span class="co">#&gt; 15:  1.954800 -3.935259   9.123248 2022-10-25 13:08:20       15    1.954800</span></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true"></a><span class="co">#&gt; 16:  2.000000 -3.000000  10.000000 2022-10-25 13:08:20       16    2.000000</span></span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true"></a><span class="co">#&gt; 17:  2.000001 -3.000000  10.000000 2022-10-25 13:08:20       17    2.000001</span></span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true"></a><span class="co">#&gt; 18:  1.999999 -3.000000  10.000000 2022-10-25 13:08:20       18    1.999999</span></span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true"></a><span class="co">#&gt; 19:  2.000000 -2.999999  10.000000 2022-10-25 13:08:20       19    2.000000</span></span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true"></a><span class="co">#&gt; 20:  2.000000 -3.000001  10.000000 2022-10-25 13:08:20       20    2.000000</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a><span class="co">#&gt;  1: -4.689827 -1.278761 -37.716445 2022-11-04 15:52:45        1   -4.689827</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a><span class="co">#&gt;  2: -5.930364 -4.400474 -54.851999 2022-11-04 15:52:45        2   -5.930364</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a><span class="co">#&gt;  3:  7.170817 -1.519948 -18.927907 2022-11-04 15:52:45        3    7.170817</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a><span class="co">#&gt;  4:  2.045200 -1.519948   7.807403 2022-11-04 15:52:45        4    2.045200</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true"></a><span class="co">#&gt;  5:  2.045200 -2.064742   9.123250 2022-11-04 15:52:45        5    2.045200</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true"></a><span class="co">#&gt;  6:  2.045200 -2.064742   9.123250 2022-11-04 15:52:45        6    2.045200</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true"></a><span class="co">#&gt;  7:  2.045201 -2.064742   9.123250 2022-11-04 15:52:45        7    2.045201</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true"></a><span class="co">#&gt;  8:  2.045199 -2.064742   9.123250 2022-11-04 15:52:45        8    2.045199</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true"></a><span class="co">#&gt;  9:  2.045200 -2.064741   9.123248 2022-11-04 15:52:45        9    2.045200</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true"></a><span class="co">#&gt; 10:  2.045200 -2.064743   9.123252 2022-11-04 15:52:45       10    2.045200</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true"></a><span class="co">#&gt; 11:  1.954800 -3.935258   9.123250 2022-11-04 15:52:45       11    1.954800</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true"></a><span class="co">#&gt; 12:  1.954801 -3.935258   9.123250 2022-11-04 15:52:45       12    1.954801</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true"></a><span class="co">#&gt; 13:  1.954799 -3.935258   9.123250 2022-11-04 15:52:45       13    1.954799</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true"></a><span class="co">#&gt; 14:  1.954800 -3.935257   9.123252 2022-11-04 15:52:45       14    1.954800</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true"></a><span class="co">#&gt; 15:  1.954800 -3.935259   9.123248 2022-11-04 15:52:45       15    1.954800</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true"></a><span class="co">#&gt; 16:  2.000000 -3.000000  10.000000 2022-11-04 15:52:45       16    2.000000</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true"></a><span class="co">#&gt; 17:  2.000001 -3.000000  10.000000 2022-11-04 15:52:45       17    2.000001</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true"></a><span class="co">#&gt; 18:  1.999999 -3.000000  10.000000 2022-11-04 15:52:45       18    1.999999</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true"></a><span class="co">#&gt; 19:  2.000000 -2.999999  10.000000 2022-11-04 15:52:45       19    2.000000</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true"></a><span class="co">#&gt; 20:  2.000000 -3.000001  10.000000 2022-11-04 15:52:45       20    2.000000</span></span>
 <span id="cb12-23"><a href="#cb12-23" aria-hidden="true"></a><span class="co">#&gt;     x_domain_x2</span></span>
 <span id="cb12-24"><a href="#cb12-24" aria-hidden="true"></a><span class="co">#&gt;  1:   -1.278761</span></span>
 <span id="cb12-25"><a href="#cb12-25" aria-hidden="true"></a><span class="co">#&gt;  2:   -4.400474</span></span>
@@ -670,19 +670,19 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true"></a>inst<span class="op">$</span>terminator =<span class="st"> </span><span class="kw">trm</span>(<span class="st">&quot;none&quot;</span>)</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true"></a>xvals =<span class="st"> </span><span class="kw">data.table</span>(<span class="dt">h =</span> <span class="kw">c</span>(<span class="fl">0.6666</span>, <span class="fl">0.6667</span>), <span class="dt">w =</span> <span class="kw">c</span>(<span class="fl">0.6666</span>, <span class="fl">0.6667</span>))</span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true"></a>inst<span class="op">$</span><span class="kw">eval_batch</span>(<span class="dt">xdt =</span> xvals)</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:21.010] [bbotk] Evaluating 2 configuration(s)</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:21.023] [bbotk] Result of batch 31:</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:21.026] [bbotk]       h      w           y</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:21.026] [bbotk]  0.6666 0.6666 -0.03703704</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true"></a><span class="co">#&gt; INFO  [13:08:21.026] [bbotk]  0.6667 0.6667 -0.03703704</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:46.255] [bbotk] Evaluating 2 configuration(s)</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:46.265] [bbotk] Result of batch 31:</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:46.267] [bbotk]       h      w           y</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:46.267] [bbotk]  0.6666 0.6666 -0.03703704</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true"></a><span class="co">#&gt; INFO  [15:52:46.267] [bbotk]  0.6667 0.6667 -0.03703704</span></span>
 <span id="cb18-11"><a href="#cb18-11" aria-hidden="true"></a><span class="kw">tail</span>(<span class="kw">as.data.table</span>(instance<span class="op">$</span>archive))</span>
 <span id="cb18-12"><a href="#cb18-12" aria-hidden="true"></a><span class="co">#&gt;          x1        x2         y           timestamp batch_nr x_domain_x1</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true"></a><span class="co">#&gt; 1: 1.954800 -3.935259  9.123248 2022-10-25 13:08:20       15    1.954800</span></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true"></a><span class="co">#&gt; 2: 2.000000 -3.000000 10.000000 2022-10-25 13:08:20       16    2.000000</span></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true"></a><span class="co">#&gt; 3: 2.000001 -3.000000 10.000000 2022-10-25 13:08:20       17    2.000001</span></span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true"></a><span class="co">#&gt; 4: 1.999999 -3.000000 10.000000 2022-10-25 13:08:20       18    1.999999</span></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true"></a><span class="co">#&gt; 5: 2.000000 -2.999999 10.000000 2022-10-25 13:08:20       19    2.000000</span></span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true"></a><span class="co">#&gt; 6: 2.000000 -3.000001 10.000000 2022-10-25 13:08:20       20    2.000000</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true"></a><span class="co">#&gt; 1: 1.954800 -3.935259  9.123248 2022-11-04 15:52:45       15    1.954800</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true"></a><span class="co">#&gt; 2: 2.000000 -3.000000 10.000000 2022-11-04 15:52:45       16    2.000000</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true"></a><span class="co">#&gt; 3: 2.000001 -3.000000 10.000000 2022-11-04 15:52:45       17    2.000001</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true"></a><span class="co">#&gt; 4: 1.999999 -3.000000 10.000000 2022-11-04 15:52:45       18    1.999999</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true"></a><span class="co">#&gt; 5: 2.000000 -2.999999 10.000000 2022-11-04 15:52:45       19    2.000000</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true"></a><span class="co">#&gt; 6: 2.000000 -3.000001 10.000000 2022-11-04 15:52:45       20    2.000000</span></span>
 <span id="cb18-19"><a href="#cb18-19" aria-hidden="true"></a><span class="co">#&gt;    x_domain_x2</span></span>
 <span id="cb18-20"><a href="#cb18-20" aria-hidden="true"></a><span class="co">#&gt; 1:   -3.935259</span></span>
 <span id="cb18-21"><a href="#cb18-21" aria-hidden="true"></a><span class="co">#&gt; 2:   -3.000000</span></span>
@@ -693,7 +693,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <p>However, this does not update the result. You could set the result by calling <code>inst$assign_result()</code> but this should be handled by the optimizer. Another way to get the best point is the following:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a>inst<span class="op">$</span>archive<span class="op">$</span><span class="kw">best</span>()</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true"></a><span class="co">#&gt;         h      w           y  x_domain           timestamp batch_nr</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true"></a><span class="co">#&gt; 1: 0.6667 0.6667 -0.03703704 &lt;list[3]&gt; 2022-10-25 13:08:21       31</span></span></code></pre></div>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true"></a><span class="co">#&gt; 1: 0.6667 0.6667 -0.03703704 &lt;list[3]&gt; 2022-11-04 15:52:46       31</span></span></code></pre></div>
 <p>Note, that this method just looks for the best outcome and returns the according row from the archive. For stochastic optimization problems this is overly optimistic and leads to biased results. For this reason the optimizer can use advanced methods to determine the result and set it itself.</p>
 </div>
 </div>
