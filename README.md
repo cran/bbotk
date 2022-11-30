@@ -6,17 +6,30 @@ Package website: [release](https://bbotk.mlr-org.com/) |
 
 <!-- badges: start -->
 
-[![tic](https://github.com/mlr-org/bbotk/workflows/tic/badge.svg?branch=main)](https://github.com/mlr-org/bbotk/actions)
+[![r-cmd-check](https://github.com/mlr-org/bbotk/actions/workflows/r-cmd-check.yml/badge.svg)](https://github.com/mlr-org/bbotk/actions/workflows/r-cmd-check.yml)
 [![CRAN Status
 Badge](https://www.r-pkg.org/badges/version-ago/bbotk)](https://cran.r-project.org/package=bbotk)
+[![Mattermost](https://img.shields.io/badge/chat-mattermost-orange.svg)](https://lmmisld-lmu-stats-slds.srv.mwn.de/mlr_invite/)
 <!-- badges: end -->
 
-This package provides a common framework for optimization including
+*bbotk* is a black-box optimization framework for R. It features highly
+configurable search spaces via the
+[paradox](https://github.com/mlr-org/paradox) package and optimizes
+every user-defined objective function. The package includes several
+optimization algorithms e.g. Random Search, Iterated Racing, Bayesian
+Optimization (in [mlr3mbo](https://github.com/mlr-org/mlr3mbo)) and
+Hyperband (in
+[mlr3hyperband](https://github.com/mlr-org/mlr3hyperband)). bbotk is the
+base package of [mlr3tuning](https://github.com/mlr-org/mlr3tuning),
+[mlr3fselect](https://github.com/mlr-org/mlr3fselect) and
+[miesmuschel](https://github.com/mlr-org/miesmuschel).
+
+The package includes the basic building blocks of optimization:
 
   - `Optimizer`: Objects of this class allow you to optimize an object
     of the class `OptimInstance`.
   - `OptimInstance`: Defines the optimization problem, consisting of an
-    `Objective`, the `search_space` and a `Terminator`. All evaluations
+    `Objective`, the `search_space`, and a `Terminator`. All evaluations
     on the `OptimInstance` will be automatically stored in its own
     `Archive`.
   - `Objective`: Objects of this class contain the objective function.
@@ -25,9 +38,6 @@ This package provides a common framework for optimization including
     maximized.
   - `Terminator`: Objects of this class control the termination of the
     optimization independent of the optimizer.
-
-Various optimization methods are already implemented e.g. grid search,
-random search and generalized simulated annealing.
 
 ## Resources
 
@@ -53,7 +63,7 @@ remotes::install_github("mlr-org/bbotk")
 ### Optimization
 
 ``` r
-# define objective function
+# define the objective function
 fun = function(xs) {
   - (xs[[1]] - 2)^2 - (xs[[2]] + 3)^2 + 10
 }
@@ -109,35 +119,24 @@ instance$result
 as.data.table(instance$archive)
 ```
 
-    ##            x1        x2          y           timestamp batch_nr x_domain_x1
-    ##  1: -4.689827 -1.278761 -37.716445 2022-09-10 18:22:05        1   -4.689827
-    ##  2: -5.930364 -4.400474 -54.851999 2022-09-10 18:22:05        2   -5.930364
-    ##  3:  7.170817 -1.519948 -18.927907 2022-09-10 18:22:05        3    7.170817
-    ##  4:  2.045200 -1.519948   7.807403 2022-09-10 18:22:05        4    2.045200
-    ##  5:  2.045200 -2.064742   9.123250 2022-09-10 18:22:05        5    2.045200
-    ##  6:  2.045200 -2.064742   9.123250 2022-09-10 18:22:05        6    2.045200
-    ##  7:  2.045201 -2.064742   9.123250 2022-09-10 18:22:05        7    2.045201
-    ##  8:  2.045199 -2.064742   9.123250 2022-09-10 18:22:05        8    2.045199
-    ##  9:  2.045200 -2.064741   9.123248 2022-09-10 18:22:05        9    2.045200
-    ## 10:  2.045200 -2.064743   9.123252 2022-09-10 18:22:05       10    2.045200
-    ##     x_domain_x2
-    ##  1:   -1.278761
-    ##  2:   -4.400474
-    ##  3:   -1.519948
-    ##  4:   -1.519948
-    ##  5:   -2.064742
-    ##  6:   -2.064742
-    ##  7:   -2.064742
-    ##  8:   -2.064742
-    ##  9:   -2.064741
-    ## 10:   -2.064743
+    ##            x1        x2          y           timestamp batch_nr x_domain_x1 x_domain_x2
+    ##  1: -4.689827 -1.278761 -37.716445 2022-11-18 11:17:17        1   -4.689827   -1.278761
+    ##  2: -5.930364 -4.400474 -54.851999 2022-11-18 11:17:17        2   -5.930364   -4.400474
+    ##  3:  7.170817 -1.519948 -18.927907 2022-11-18 11:17:17        3    7.170817   -1.519948
+    ##  4:  2.045200 -1.519948   7.807403 2022-11-18 11:17:17        4    2.045200   -1.519948
+    ##  5:  2.045200 -2.064742   9.123250 2022-11-18 11:17:17        5    2.045200   -2.064742
+    ##  6:  2.045200 -2.064742   9.123250 2022-11-18 11:17:17        6    2.045200   -2.064742
+    ##  7:  2.045201 -2.064742   9.123250 2022-11-18 11:17:17        7    2.045201   -2.064742
+    ##  8:  2.045199 -2.064742   9.123250 2022-11-18 11:17:17        8    2.045199   -2.064742
+    ##  9:  2.045200 -2.064741   9.123248 2022-11-18 11:17:17        9    2.045200   -2.064741
+    ## 10:  2.045200 -2.064743   9.123252 2022-11-18 11:17:17       10    2.045200   -2.064743
 
 ### Quick optimization with `bb_optimize`
 
 ``` r
 library(bbotk)
 
-# define objective function
+# define the objective function
 fun = function(xs) {
   c(y1 = - (xs[[1]] - 2)^2 - (xs[[2]] + 3)^2 + 10)
 }
