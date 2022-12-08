@@ -1,3 +1,7 @@
+# bbotk 0.7.2
+
+* fix: Standalone `Tuner` and `FSelector` were rejected by `ContextOptimization`.
+
 # bbotk 0.7.1
 
 * feat: Data unrelated to a specific point evaluation can be written to `Archive$data_extra`.

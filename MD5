@@ -1,11 +1,11 @@
-a3c435a4df87ea2a72930ab28c037a2d *DESCRIPTION
+3e9645d4bf017bb52742554b2343ef56 *DESCRIPTION
 876dd86c9d1cc9fc3a302405d6d18e9c *NAMESPACE
-084c7b1980336ed14ac169e2d1c00b58 *NEWS.md
+758f43de60cd31a7f2808a84e11ea233 *NEWS.md
 c730bfb4d738407dba15bfbc2a498009 *R/Archive.R
 dcba20f43b105ed9aee9cdb0f48ffa4c *R/ArchiveBest.R
 855392c6a0455b347e2fe9914be4ab32 *R/CallbackOptimization.R
 ab7eeec4dec306c63bcb7d520211b55e *R/Codomain.R
-e4ad211784debdf6ec874a54088b88e1 *R/ContextOptimization.R
+76cfdc7f097e0c1866ce6f7b85929f51 *R/ContextOptimization.R
 2a1645b398dda3ad30ed2e9d92a0addc *R/Objective.R
 b211d2ed8a8902bcffd3d92ceec045b1 *R/ObjectiveRFun.R
 8a019430f9d55e6ff13b02793cb3f415 *R/ObjectiveRFunDt.R
@@ -47,10 +47,10 @@ b38b8d323258daebf2099b9d28d4187b *R/sugar.R
 703aa95ea16fc1a34a8256f1cb3e4bb3 *README.md
 ea124a494ad7922985532ad3b308e4d5 *build/partial.rdb
 59cbc75cd6cffe49c80b7ec1ff399f85 *build/vignette.rds
-aff34b097208cce20275a11d0faf03b6 *inst/WORDLIST
+508d57177ef6cd2acec937d42af0fe49 *inst/WORDLIST
 af0e8bf4c8725c8b4d64ea73da721f96 *inst/doc/bbotk.R
 e61bc427c2d459ca4a5b9962c8835fc1 *inst/doc/bbotk.Rmd
-d1f0c261551aea6c31649b83a7a1f680 *inst/doc/bbotk.html
+6738786d461ff66b87ee45c60592c9f8 *inst/doc/bbotk.html
 eea24462f628cdde536375f857a0b692 *man/Archive.Rd
 5244ea4845e81eb10afcb9f8ec6bf8d7 *man/ArchiveBest.Rd
 4ba16d451c8e8f488a5fb385e68dc0bb *man/CallbackOptimization.Rd
@@ -68,7 +68,7 @@ a74adb8295dc6591d79f8b8daaffdf10 *man/Progressor.Rd
 ae034abfc4bce0c8650304de0973919d *man/Terminator.Rd
 3fe9073921952e0f493ed718bdf84791 *man/assign_result_default.Rd
 c1c76e093f2cac27c47d7310120d513d *man/bb_optimize.Rd
-75404fac3aad5701d7d855d9ae5ba16a *man/bbotk-package.Rd
+ff6ad456228a37334ed8a6a2ed20e9e2 *man/bbotk-package.Rd
 861107ed9a049573073473527d57e8ec *man/bbotk.backup.Rd
 d8c396c0d379c8cbc6754f1204e2dc61 *man/bbotk_assertions.Rd
 33531d151f7ef631a369e13335bc7857 *man/bbotk_reflections.Rd
@@ -136,7 +136,7 @@ c7a23b22a91f9633a89d94d7669e8fc5 *tests/testthat/test_TerminatorNone.R
 8a8f43cb50d115a03dcb1539d05dfc2c *tests/testthat/test_mlr_callbacks.R
 ae54010b18f81fb7c5704b4ff08109c6 *tests/testthat/test_mlr_optimizers.R
 1aec0c2a2c74e0dd305ab7dd4a42b2bb *tests/testthat/test_mlr_terminators.R
-278f6ecc95618237c3cf6639aa69c6d8 *tests/testthat/test_nds_selection.R
+7c13995d128cc198fcdc9e5c6fb9a283 *tests/testthat/test_nds_selection.R
 2e2da58a03ff644b14f517da2fd3d761 *tests/testthat/test_search_start.R
 e43b254feb8bbf8efccf53f25dc26492 *tests/testthat/test_sugar.R
 e61bc427c2d459ca4a5b9962c8835fc1 *vignettes/bbotk.Rmd
