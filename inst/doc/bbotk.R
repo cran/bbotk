@@ -124,7 +124,7 @@ tail(as.data.table(instance$archive))
 ## -----------------------------------------------------------------------------
 inst$archive$best()
 
-## ---- eval = FALSE, include = FALSE-------------------------------------------
+## ----eval = FALSE, include = FALSE--------------------------------------------
 #  # TODO: Write the following sections:
 #  
 #  ## Implementing your own Objective
