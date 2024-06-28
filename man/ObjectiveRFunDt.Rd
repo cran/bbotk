@@ -31,6 +31,7 @@ Objective function.}
 <ul>
 <li><span class="pkg-link" data-pkg="bbotk" data-topic="Objective" data-id="eval"><a href='../../bbotk/html/Objective.html#method-Objective-eval'><code>bbotk::Objective$eval()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="bbotk" data-topic="Objective" data-id="format"><a href='../../bbotk/html/Objective.html#method-Objective-format'><code>bbotk::Objective$format()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="bbotk" data-topic="Objective" data-id="help"><a href='../../bbotk/html/Objective.html#method-Objective-help'><code>bbotk::Objective$help()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="bbotk" data-topic="Objective" data-id="print"><a href='../../bbotk/html/Objective.html#method-Objective-print'><code>bbotk::Objective$print()</code></a></span></li>
 </ul>
 </details>
@@ -77,8 +78,7 @@ be minimized or maximized.  The default is to minimize each component.}
 Changeable constants or parameters that are not subject to tuning can be stored and accessed here.}
 
 \item{\code{check_values}}{(\code{logical(1)})\cr
-Should points before the evaluation and the results be checked for
-validity?}
+Should points before the evaluation and the results be checked for validity?}
 }
 \if{html}{\out{</div>}}
 }

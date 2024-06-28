@@ -2,20 +2,22 @@
 % Please edit documentation in R/Objective.R
 \name{Objective}
 \alias{Objective}
-\title{Objective function with domain and co-domain}
+\title{Objective Function with Domain and Codomain}
 \description{
-Describes a black-box objective function that maps an arbitrary domain to a
-numerical codomain.
+The \code{Objective} class describes a black-box objective function that maps an arbitrary domain to a numerical codomain.
 }
-\section{Technical details}{
-
-\code{Objective} objects can have the following properties: \code{"noisy"},
-\code{"deterministic"}, \code{"single-crit"} and \code{"multi-crit"}.
+\details{
+\code{Objective} objects can have the following properties: \code{"noisy"}, \code{"deterministic"}, \code{"single-crit"} and \code{"multi-crit"}.
 }
-
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
+\item{\code{callbacks}}{(list of \link[mlr3misc:Callback]{mlr3misc::Callback})\cr
+Callbacks applied during the optimization.}
+
+\item{\code{context}}{(\link{ContextBatch})\cr
+Stores the context for the callbacks.}
+
 \item{\code{id}}{(\code{character(1)})).}
 
 \item{\code{properties}}{(\code{character()}).}
@@ -39,6 +41,14 @@ and \verb{$.eval_many()} as named arguments.}
 \section{Active bindings}{
 \if{html}{\out{<div class="r6-active-bindings">}}
 \describe{
+\item{\code{label}}{(\code{character(1)})\cr
+Label for this object.
+Can be used in tables, plot and text output instead of the ID.}
+
+\item{\code{man}}{(\code{character(1)})\cr
+String in the format \verb{[pkg]::[topic]} pointing to a manual page for this object.
+The referenced help package can be opened via method \verb{$help()}.}
+
 \item{\code{xdim}}{(\code{integer(1)})\cr
 Dimension of domain.}
 
@@ -56,6 +66,7 @@ Dimension of codomain.}
 \item \href{#method-Objective-eval}{\code{Objective$eval()}}
 \item \href{#method-Objective-eval_many}{\code{Objective$eval_many()}}
 \item \href{#method-Objective-eval_dt}{\code{Objective$eval_dt()}}
+\item \href{#method-Objective-help}{\code{Objective$help()}}
 \item \href{#method-Objective-clone}{\code{Objective$clone()}}
 }
 }
@@ -71,7 +82,9 @@ Creates a new instance of this \link[R6:R6Class]{R6} class.
   domain,
   codomain = ps(y = p_dbl(tags = "minimize")),
   constants = ps(),
-  check_values = TRUE
+  check_values = TRUE,
+  label = NA_character_,
+  man = NA_character_
 )}\if{html}{\out{</div>}}
 }
 
@@ -96,8 +109,15 @@ be minimized or maximized.  The default is to minimize each component.}
 Changeable constants or parameters that are not subject to tuning can be stored and accessed here.}
 
 \item{\code{check_values}}{(\code{logical(1)})\cr
-Should points before the evaluation and the results be checked for
-validity?}
+Should points before the evaluation and the results be checked for validity?}
+
+\item{\code{label}}{(\code{character(1)})\cr
+Label for this object.
+Can be used in tables, plot and text output instead of the ID.}
+
+\item{\code{man}}{(\code{character(1)})\cr
+String in the format \verb{[pkg]::[topic]} pointing to a manual page for this object.
+The referenced help package can be opened via method \verb{$help()}.}
 }
 \if{html}{\out{</div>}}
 }
@@ -215,6 +235,16 @@ data.table::data.table()] that contains one y-column for
 single-criteria functions and multiple y-columns for multi-criteria
 functions, e.g.  \code{data.table(y = 1:2)} or \code{data.table(y1 = 1:2, y2 = 3:4)}.
 }
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-Objective-help"></a>}}
+\if{latex}{\out{\hypertarget{method-Objective-help}{}}}
+\subsection{Method \code{help()}}{
+Opens the corresponding help page referenced by field \verb{$man}.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Objective$help()}\if{html}{\out{</div>}}
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Objective-clone"></a>}}

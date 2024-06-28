@@ -84,7 +84,7 @@ Terminator = R6Class("Terminator",
     #'
     #' @return named `integer(2)`.
     status = function(archive) {
-      assert_r6(archive, "Archive")
+      #assert_r6(archive, "Archive")
       private$.status(archive)
     },
 
@@ -133,16 +133,12 @@ Terminator = R6Class("Terminator",
     },
 
     label = function(rhs) {
-      if (!missing(rhs) && !identical(rhs, private$.label)) {
-        stop("$label is read-only.")
-      }
+      assert_ro_binding(rhs)
       private$.label
     },
 
     man = function(rhs) {
-      if (!missing(rhs) && !identical(rhs, private$.man)) {
-        stop("$man is read-only.")
-      }
+assert_ro_binding(rhs)
       private$.man
     }
   ),

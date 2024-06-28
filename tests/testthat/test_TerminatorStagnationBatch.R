@@ -2,7 +2,7 @@ test_that("TerminatorStagnationBatch works with single objective and n = 1", {
   terminator = TerminatorStagnationBatch$new()
   terminator$param_set$values$n = 1
   terminator$param_set$values$threshold = 0
-  expect_output(print(terminator), "TerminatorStagnationBatch")
+  expect_snapshot(terminator)
   inst = MAKE_INST_2D(terminator)
   inst$archive
   inst$eval_batch(xdt = data.table(x1 = 1, x2 = 1))
@@ -16,7 +16,7 @@ test_that("TerminatorStagnationBatch works with single objective and n = 2", {
   terminator = TerminatorStagnationBatch$new()
   terminator$param_set$values$n = 2
   terminator$param_set$values$threshold = 0
-  expect_output(print(terminator), "TerminatorStagnationBatch")
+  expect_snapshot(terminator)
   inst = MAKE_INST_2D(terminator)
   inst$archive
   inst$eval_batch(xdt = data.table(x1 = 1, x2 = 1))
@@ -30,14 +30,14 @@ test_that("TerminatorStagnationBatch works with single objective and n = 2", {
   expect_error(inst$eval_batch(xdt = data.table(x1 = 0, x2 = 0)))
 })
 
-test_that("TerminatorStagnationBatch in OptimInstanceMultiCrit throws an error", {
+test_that("TerminatorStagnationBatch in OptimInstanceBatchMultiCrit throws an error", {
   terminator = TerminatorStagnationBatch$new()
   expect_error(MAKE_INST_2D_2D(terminator))
 })
 
 test_that("TerminatorStagnationBatch works with empty archive", {
   terminator = TerminatorStagnationBatch$new()
-  archive = Archive$new(ps(x = p_dbl()), ps(y = p_dbl(tags = "minimize")))
+  archive = ArchiveBatch$new(ps(x = p_dbl()), ps(y = p_dbl(tags = "minimize")))
   expect_false(terminator$is_terminated(archive))
 })
 

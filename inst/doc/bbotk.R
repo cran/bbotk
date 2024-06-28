@@ -48,7 +48,7 @@ terminators$run_time$param_set$values$secs = 10
 term_combo = TerminatorCombo$new(terminators = terminators)
 
 ## -----------------------------------------------------------------------------
-instance = OptimInstanceSingleCrit$new(objective = obfun, terminator = term_combo)
+instance = OptimInstanceBatchSingleCrit$new(objective = obfun, terminator = term_combo)
 instance
 
 ## -----------------------------------------------------------------------------
@@ -96,7 +96,7 @@ search_space = ps(
 )
 
 ## -----------------------------------------------------------------------------
-inst = OptimInstanceSingleCrit$new(
+inst = OptimInstanceBatchSingleCrit$new(
   objective = obj,
   search_space = search_space,
   terminator = trm("evals", n_evals = 30)

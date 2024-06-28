@@ -1,18 +1,24 @@
-#' @title Objective function with domain and co-domain
+#' @title Objective Function with Domain and Codomain
 #'
 #' @description
-#' Describes a black-box objective function that maps an arbitrary domain to a
-#' numerical codomain.
+#' The `Objective` class describes a black-box objective function that maps an arbitrary domain to a numerical codomain.
 #'
-#' @section Technical details:
-#' `Objective` objects can have the following properties: `"noisy"`,
-#' `"deterministic"`, `"single-crit"` and `"multi-crit"`.
+#' @details
+#' `Objective` objects can have the following properties: `"noisy"`, `"deterministic"`, `"single-crit"` and `"multi-crit"`.
+#'
+#' @template field_callbacks
+#' @template field_context
+#' @template field_label
+#' @template field_man
 #'
 #' @template param_domain
 #' @template param_codomain
 #' @template param_xdt
 #' @template param_check_values
 #' @template param_constants
+#' @template param_label
+#' @template param_man
+#'
 #' @export
 Objective = R6Class("Objective",
   public = list(
@@ -41,13 +47,25 @@ Objective = R6Class("Objective",
     #' @field check_values (`logical(1)`)\cr
     check_values = NULL,
 
+    callbacks = NULL,
+
+    context = NULL,
+
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     #'
     #' @param id (`character(1)`).
     #' @param properties (`character()`).
-    initialize = function(id = "f", properties = character(), domain, codomain = ps(y = p_dbl(tags = "minimize")),
-      constants = ps(), check_values = TRUE) {
+    initialize = function(
+      id = "f",
+      properties = character(),
+      domain,
+      codomain = ps(y = p_dbl(tags = "minimize")),
+      constants = ps(),
+      check_values = TRUE,
+      label = NA_character_,
+      man = NA_character_
+      ) {
       self$id = assert_string(id)
       self$domain = assert_param_set(domain)
       assert_param_set(codomain)
@@ -60,6 +78,9 @@ Objective = R6Class("Objective",
       self$properties = assert_subset(properties, bbotk_reflections$objective_properties)
       self$constants = assert_param_set(constants)
       self$check_values = assert_flag(check_values)
+
+      private$.label = assert_string(label, na.ok = TRUE)
+      private$.man = assert_string(man, na.ok = TRUE)
     },
 
     #' @description
@@ -136,6 +157,12 @@ Objective = R6Class("Objective",
     #' functions, e.g.  `data.table(y = 1:2)` or `data.table(y1 = 1:2, y2 = 3:4)`.
     eval_dt = function(xdt) {
       self$eval_many(transpose_list(xdt))
+    },
+
+    #' @description
+    #' Opens the corresponding help page referenced by field `$man`.
+    help = function() {
+      open_help(self$man)
     }
   ),
 
@@ -146,7 +173,17 @@ Objective = R6Class("Objective",
 
     #' @field ydim (`integer(1)`)\cr
     #' Dimension of codomain.
-    ydim = function() self$codomain$target_length
+    ydim = function() self$codomain$target_length,
+
+    label = function(rhs) {
+      assert_ro_binding(rhs)
+      private$.label
+    },
+
+    man = function(rhs) {
+      assert_ro_binding(rhs)
+      private$.man
+    }
   ),
 
   private = list(
@@ -163,12 +200,17 @@ Objective = R6Class("Objective",
     },
 
     deep_clone = function(name, value) {
+      if (name == "context") return(NULL)
+      if (!is.environment(value)) return(value)
       switch(name,
         domain = value$clone(deep = TRUE),
         codomain = value$clone(deep = TRUE),
         constants = value$clone(deep = TRUE),
         value
       )
-    }
+    },
+
+    .label = NULL,
+    .man = NULL
   )
 )
