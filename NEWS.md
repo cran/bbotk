@@ -1,3 +1,7 @@
+# bbotk 1.0.1
+
+* refactor: extra columns in results.
+
 # bbotk 1.0.0
 
 * feat: Introduce asynchronous optimization with the `OptimizerAsync` and `OptimInstanceAsync` classes.
