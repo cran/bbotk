@@ -1,6 +1,6 @@
 Package: bbotk
 Title: Black-Box Optimization Toolkit
-Version: 1.0.1
+Version: 1.1.0
 Authors@R: c(
     person("Marc", "Becker", , "marcbecker@posteo.de", role = c("cre", "aut"),
            comment = c(ORCID = "0000-0002-8115-0400")),
@@ -26,9 +26,7 @@ Depends: paradox (>= 1.0.0), R (>= 3.1.0)
 Imports: checkmate (>= 2.0.0), data.table, lgr, methods, mlr3misc (>=
         0.15.1), R6
 Suggests: adagio, emoa, GenSA, irace (>= 3.5), knitr, nloptr,
-        progressr, processx, redux, rmarkdown, testthat (>= 3.0.0),
-        rush
-VignetteBuilder: knitr
+        progressr, processx, redux, testthat (>= 3.0.0), rush
 Config/testthat/edition: 3
 Config/testthat/parallel: false
 Encoding: UTF-8
@@ -50,17 +48,18 @@ Collate: 'Archive.R' 'ArchiveAsync.R' 'ArchiveBatch.R'
         'OptimizerBatch.R' 'OptimizerBatchCmaes.R'
         'OptimizerBatchDesignPoints.R' 'OptimizerBatchFocusSearch.R'
         'OptimizerBatchGenSA.R' 'OptimizerBatchGridSearch.R'
-        'OptimizerBatchIrace.R' 'OptimizerBatchNLoptr.R'
-        'OptimizerBatchRandomSearch.R' 'Progressor.R'
-        'mlr_terminators.R' 'Terminator.R' 'TerminatorClockTime.R'
-        'TerminatorCombo.R' 'TerminatorEvals.R' 'TerminatorNone.R'
-        'TerminatorPerfReached.R' 'TerminatorRunTime.R'
-        'TerminatorStagnation.R' 'TerminatorStagnationBatch.R'
-        'as_terminator.R' 'assertions.R' 'bb_optimize.R'
-        'bbotk_reflections.R' 'bibentries.R' 'helper.R'
-        'mlr_callbacks.R' 'nds_selection.R' 'reexport.R' 'sugar.R'
-        'worker_loops.R' 'zzz.R'
-Packaged: 2024-07-24 11:59:43 UTC; marc
+        'OptimizerBatchIrace.R' 'OptimizerBatchLocalSearch.R'
+        'OptimizerBatchNLoptr.R' 'OptimizerBatchRandomSearch.R'
+        'Progressor.R' 'mlr_terminators.R' 'Terminator.R'
+        'TerminatorClockTime.R' 'TerminatorCombo.R' 'TerminatorEvals.R'
+        'TerminatorNone.R' 'TerminatorPerfReached.R'
+        'TerminatorRunTime.R' 'TerminatorStagnation.R'
+        'TerminatorStagnationBatch.R'
+        'TerminatorStagnationHypervolume.R' 'as_terminator.R'
+        'assertions.R' 'bb_optimize.R' 'bbotk_reflections.R'
+        'bibentries.R' 'helper.R' 'mlr_callbacks.R' 'nds_selection.R'
+        'reexport.R' 'sugar.R' 'worker_loops.R' 'zzz.R'
+Packaged: 2024-09-09 10:37:03 UTC; marc
 Author: Marc Becker [cre, aut] (<https://orcid.org/0000-0002-8115-0400>),
   Jakob Richter [aut] (<https://orcid.org/0000-0003-4481-5554>),
   Michel Lang [aut] (<https://orcid.org/0000-0001-9754-0393>),
@@ -69,4 +68,4 @@ Author: Marc Becker [cre, aut] (<https://orcid.org/0000-0002-8115-0400>),
   Olaf Mersmann [ctb]
 Maintainer: Marc Becker <marcbecker@posteo.de>
 Repository: CRAN
-Date/Publication: 2024-07-24 12:30:02 UTC
+Date/Publication: 2024-09-09 19:00:27 UTC
