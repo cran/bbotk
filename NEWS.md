@@ -1,3 +1,5 @@
+# bbotk 1.1.1
+
 # bbotk 1.1.0
 
 * docs: Move vignette to mlr3book.

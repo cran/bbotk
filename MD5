@@ -1,6 +1,6 @@
-2253f8cc9b48a241ce4a3d6028d59aff *DESCRIPTION
+6b069d2e98f82bc1b24e710a95f7db7b *DESCRIPTION
 a86c170feb804e12768886966a538d24 *NAMESPACE
-ccb8c64e0c471f064c8eef3214d11427 *NEWS.md
+aa1aee4bbf11a8cb6a553ad4b972b73d *NEWS.md
 700256ca0f12807f3d4b9aba76e11b34 *R/Archive.R
 7e95d0b7adf7bf81f432a9d779c257e6 *R/ArchiveAsync.R
 b216b5c79d7afad0e719426980c9004e *R/ArchiveBatch.R
@@ -13,7 +13,7 @@ a80c1ac3572819cd035913b42b22ed7a *R/CallbackBatch.R
 77cd47b50d7de5a0921b98da00d3fe5a *R/ObjectiveRFun.R
 25b63955006bae9c82c4503722c6b4cc *R/ObjectiveRFunDt.R
 efd5595197b63c741a03da2f461f2aaa *R/ObjectiveRFunMany.R
-fc1341c5d9d1da76d03fe7f370b90d0f *R/OptimInstance.R
+4c047f57a994abd50888e79e85cfbe9d *R/OptimInstance.R
 183b4278d7b7ad2a84b496dfc38d8ee8 *R/OptimInstanceAsync.R
 c96d97e6607e8ebd119dd3b6295d6888 *R/OptimInstanceAsyncMultiCrit.R
 2827f22272869004f7dfa90ad271dc00 *R/OptimInstanceAsyncSingleCrit.R
@@ -22,7 +22,7 @@ e4e36d4005dc2dd0f20b3dfef8c184b1 *R/OptimInstanceBatchMultiCrit.R
 c3428379b54cf8340eeacac8c37aa681 *R/OptimInstanceBatchSingleCrit.R
 8f4519fc1bdbbf86a21b68e647a5ce7d *R/OptimInstanceMultiCrit.R
 4d2e5677494649232ae4e8cf85b02df1 *R/OptimInstanceSingleCrit.R
-65d2f7af5fcc5f2a8d6c0f165a4a201b *R/Optimizer.R
+c9f7f130c53a7536c7c0427e301a98bb *R/Optimizer.R
 eacb48dd8abc8c35c24520c07ffa2e6d *R/OptimizerAsync.R
 80472ce6f3f998ea1fc8e5e189c5ef3d *R/OptimizerAsyncDesignPoints.R
 0ec08d0356dbccdcac2ffde0f3e0de3e *R/OptimizerAsyncGridSearch.R
@@ -63,7 +63,7 @@ af34d9a5e2afb3f8147a55d9b78b7bd7 *R/helper.R
 584fc9597f82795bd5c44ab4a6412705 *R/worker_loops.R
 4740f232cf795e676daae4df74ca072d *R/zzz.R
 3b36733e7caed7085f313070b4b6deca *README.md
-7080893e02c49cd296d4424b9be55069 *build/partial.rdb
+aa5e5a2cbfaea3d9b6cdbe378ac48cee *build/partial.rdb
 f91d5dddd5929c347ca89751e538ca22 *inst/WORDLIST
 b1cf6431800e47592b306c469c924afe *man/Archive.Rd
 56e8482e86e7e83306843f138a88286f *man/ArchiveAsync.Rd
@@ -77,7 +77,7 @@ f7a7ebafed80a65058551890114a45f5 *man/Objective.Rd
 abbcd21e500dbf4330b8b948fd5ec9f9 *man/ObjectiveRFun.Rd
 0222c5d1c1ea29e14db93ae81646d55c *man/ObjectiveRFunDt.Rd
 6e79843fe3ee87fa2c10b6ccb31cd2a1 *man/ObjectiveRFunMany.Rd
-15dc9bd60f126a3aa8106cfb15d630e7 *man/OptimInstance.Rd
+7f41ef47f6c51930089d4e5901b5a214 *man/OptimInstance.Rd
 f93dee4701321a090e9444e121ff4f60 *man/OptimInstanceAsync.Rd
 e03623dbdbd4a5128d23d12973b77bc4 *man/OptimInstanceAsyncMultiCrit.Rd
 ef94a627e8175a1d2d545329ce10038b *man/OptimInstanceAsyncSingleCrit.Rd
@@ -163,15 +163,15 @@ e52163e1a8016ff7548ddcdbb409b0e8 *tests/testthat/_snaps/TerminatorNone.md
 88d4e60506053aeb827b7a40467ca858 *tests/testthat/_snaps/TerminatorRunTime.md
 75a8b497e4718b4b5366669b4db387b1 *tests/testthat/_snaps/TerminatorStagnation.md
 2fab443a1ef68abffb347ca6685f4df3 *tests/testthat/_snaps/TerminatorStagnationBatch.md
-50e803571d35cc993c7998feec28d3f6 *tests/testthat/helper.R
+be074778de3aa3ee5bff38ab384f424d *tests/testthat/helper.R
 7c9b93d7fb89421eeed0dc3dc805043e *tests/testthat/setup.R
 46cf502b9946788f7af4fa8176b93b62 *tests/testthat/teardown.R
-c8276d9cb383c87684c989e01696d17f *tests/testthat/test_ArchiveAsync.R
+a86bda602533a339f82ab34629394db1 *tests/testthat/test_ArchiveAsync.R
 0bc80376db250285c03632904b2a9857 *tests/testthat/test_ArchiveBatch.R
 b6470fc1139be74df12c52d3ed162df2 *tests/testthat/test_CallbackAsync.R
 1fcba1854a15c49ec6789f6ea5d3238d *tests/testthat/test_CallbackBatch.R
 4c6390d8e00e0f67f7696adc46134f56 *tests/testthat/test_Objective.R
-0270dd9355e83e9a0073efa524133e9b *tests/testthat/test_OptimInstanceAsyncSingleCrit.R
+a90fd4523df44476f35da6586382fa80 *tests/testthat/test_OptimInstanceAsyncSingleCrit.R
 9e2f4f597e882594a5fd5c7dedb9e694 *tests/testthat/test_OptimInstanceBatchMultiCrit.R
 7be5dcddeac711f84b29f3473a4956ba *tests/testthat/test_OptimInstanceBatchSingleCrit.R
 7e95e39c0d138e6b83fa701303387874 *tests/testthat/test_Optimizer.R
@@ -197,7 +197,7 @@ c0192f089eee62352f816d9b7c29f223 *tests/testthat/test_TerminatorPerfReached.R
 600a470c3be7845844d1ef77c6e216f4 *tests/testthat/test_TerminatorRunTime.R
 0ce5b8302d24dd4a49efc22d784d6e66 *tests/testthat/test_TerminatorStagnation.R
 eed1d20d498ad7ab4a7335c1ad0664ae *tests/testthat/test_TerminatorStagnationBatch.R
-ad2b47048abdd0785f9efb854fd0f73b *tests/testthat/test_TerminatorStagnationHypervolume.R
+c6bf3ab2c7312755058793bb4bddf084 *tests/testthat/test_TerminatorStagnationHypervolume.R
 06155926077d014e264544298a07cbad *tests/testthat/test_bb_optimize.R
 810eb5dfb695c377296f74fcc1459782 *tests/testthat/test_deprecated.R
 1eaa1cd277f9883e5f36025dcffd9973 *tests/testthat/test_mlr_callbacks.R
