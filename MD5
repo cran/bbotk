@@ -1,6 +1,6 @@
-4f7fce7773bdcc0ec52561e7bf51fef6 *DESCRIPTION
+ae9279202d362b2645625c9a5ac82594 *DESCRIPTION
 da7523e128f65fe3e287aa4bed274050 *NAMESPACE
-6b7722fe1008e12ed3441fd3de5aa7a4 *NEWS.md
+c9741cd46775140634b6db8b4de80ed0 *NEWS.md
 700256ca0f12807f3d4b9aba76e11b34 *R/Archive.R
 7e95d0b7adf7bf81f432a9d779c257e6 *R/ArchiveAsync.R
 b216b5c79d7afad0e719426980c9004e *R/ArchiveBatch.R
@@ -34,7 +34,7 @@ c503f81304c2b62db442d8128683e974 *R/OptimizerAsyncRandomSearch.R
 521afafa2940b5cbde706ad187582505 *R/OptimizerBatchFocusSearch.R
 110ef3d69cebd36cc573677168a79893 *R/OptimizerBatchGenSA.R
 f5e9611a07a8608c0062edeaad1ebfcf *R/OptimizerBatchGridSearch.R
-e605c27903bcb582034d48cc7a58a7c5 *R/OptimizerBatchIrace.R
+844bde4fbc51345c6d8715e9a35720b9 *R/OptimizerBatchIrace.R
 652976ab7d20db4cbf1153b77bc336d1 *R/OptimizerBatchLocalSearch.R
 0c28597d3e4a87e6d4b69cdd951f51e0 *R/OptimizerBatchNLoptr.R
 554d3d0b071cf1619b9957e11c14adcd *R/OptimizerBatchRandomSearch.R
@@ -165,7 +165,7 @@ e52163e1a8016ff7548ddcdbb409b0e8 *tests/testthat/_snaps/TerminatorNone.md
 88d4e60506053aeb827b7a40467ca858 *tests/testthat/_snaps/TerminatorRunTime.md
 75a8b497e4718b4b5366669b4db387b1 *tests/testthat/_snaps/TerminatorStagnation.md
 2fab443a1ef68abffb347ca6685f4df3 *tests/testthat/_snaps/TerminatorStagnationBatch.md
-be074778de3aa3ee5bff38ab384f424d *tests/testthat/helper.R
+979700870cb2a3a70f119f089fec000a *tests/testthat/helper.R
 7c9b93d7fb89421eeed0dc3dc805043e *tests/testthat/setup.R
 46cf502b9946788f7af4fa8176b93b62 *tests/testthat/teardown.R
 a86bda602533a339f82ab34629394db1 *tests/testthat/test_ArchiveAsync.R
@@ -187,7 +187,7 @@ d6ddcac68334a172371218b1a379bd80 *tests/testthat/test_OptimizerChain.R
 1b341e37946f5d7ad8298bbf85a3120d *tests/testthat/test_OptimizerFocusSearch.R
 70e372e8606656d706da581cebe3ed44 *tests/testthat/test_OptimizerGenSA.R
 a16d0de0009e285b4e1f4a537465941b *tests/testthat/test_OptimizerGridSearch.R
-8769b8baf6fb8f2e68542041f620a50c *tests/testthat/test_OptimizerIrace.R
+26b876f0d640fdfd171766b3279af53e *tests/testthat/test_OptimizerIrace.R
 724fcff89eac12a904c88efb5a989a65 *tests/testthat/test_OptimizerLocalSearch.R
 c62b76568b3c6643973eb5a285e97948 *tests/testthat/test_OptimizerNLoptr.R
 ead171595a0d1861e31fadf23079a95b *tests/testthat/test_OptimizerRandomSearch.R
