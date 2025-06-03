@@ -1,3 +1,5 @@
+# bbotk 1.6.0
+
 # bbotk 1.5.0
 
 * compatibility: irace 4.1.0

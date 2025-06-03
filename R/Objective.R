@@ -94,14 +94,16 @@ Objective = R6Class("Objective",
     #' Print method.
     #' @return `character()`.
     print = function() {
-      catf(self$format())
-      catf("Domain:")
-      print(self$domain)
-      catf("Codomain:")
-      print(self$codomain)
+      cat_cli({
+        cli_h1("{.cls {class(self)[1L]}}")
+        cli_li("Domain:")
+      })
+      print(as.data.table(self$domain)[, c("id", "class", "lower", "upper", "nlevels"), with = FALSE])
+      cat_cli(cli_li("Codomain:"))
+      print(as.data.table(self$codomain)[, c("id", "class", "lower", "upper"), with = FALSE])
       if (length(self$constants$values) > 0) {
-        catf("Constants:")
-        print(self$constants)
+        cat_cli(cli_li("Constants:"))
+        print(as.data.table(self$constants)[, c("id", "class", "lower", "upper", "nlevels"), with = FALSE])
       }
     },
 
@@ -119,7 +121,7 @@ Objective = R6Class("Objective",
     #' These extra entries are referred to as *extras*.
     eval = function(xs) {
       if (self$check_values) self$domain$assert(xs)
-      res = invoke(private$.eval, xs, .args = self$constants$values)
+      res = invoke(private$.eval, xs = xs, .args = self$constants$values)
       if (self$check_values) self$codomain$assert(res[self$codomain$ids()])
       return(res)
     },
@@ -144,7 +146,7 @@ Objective = R6Class("Objective",
     #' These extra columns are referred to as *extras*.
     eval_many = function(xss) {
       if (self$check_values) lapply(xss, self$domain$assert)
-      res = invoke(private$.eval_many, xss, .args = self$constants$values)
+      res = invoke(private$.eval_many, xss = xss, .args = self$constants$values)
       if (self$check_values) self$codomain$assert_dt(res[, self$codomain$ids(), with = FALSE])
       return(res)
     },
@@ -183,6 +185,13 @@ Objective = R6Class("Objective",
     man = function(rhs) {
       assert_ro_binding(rhs)
       private$.man
+    },
+
+    #' @field packages (`character()`)\cr
+    #'   Set of required packages.
+    packages = function(rhs) {
+      assert_ro_binding(rhs)
+      private$.packages
     }
   ),
 
@@ -211,6 +220,7 @@ Objective = R6Class("Objective",
     },
 
     .label = NULL,
-    .man = NULL
+    .man = NULL,
+    .packages = NULL
   )
 )
