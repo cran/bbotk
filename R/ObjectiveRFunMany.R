@@ -8,13 +8,15 @@
 #' @template param_codomain
 #' @template param_check_values
 #' @template param_constants
+#' @template param_packages
 #'
+#' @seealso [ObjectiveRFun], [ObjectiveRFunDt]
 #' @export
 #' @examples
 #' # define objective function
 #' fun = function(xss) {
 #'   res = lapply(xss, function(xs) -(xs[[1]] - 2)^2 - (xs[[2]] + 3)^2 + 10)
-#'   data.table(y = as.numeric(res))
+#'   data.table::data.table(y = as.numeric(res))
 #' }
 #'
 #' # set domain
@@ -24,15 +26,26 @@
 #' )
 #'
 #' # set codomain
-#' codomain = ps(y = p_dbl(tags = "maximize"))
+#' codomain = ps(
+#'   y = p_dbl(tags = "maximize")
+#' )
 #'
-#' # create Objective object
-#' obfun = ObjectiveRFunMany$new(
+#' # create objective
+#' objective = ObjectiveRFunMany$new(
 #'   fun = fun,
 #'   domain = domain,
 #'   codomain = codomain,
 #'   properties = "deterministic"
 #' )
+#'
+#' # evaluate objective function
+#' objective$eval(list(x1 = 1, x2 = 2))
+#'
+#' # evaluate multiple input values
+#' objective$eval_many(list(list(x1 = 1, x2 = 2), list(x1 = 3, x2 = 4)))
+#'
+#' # evaluate multiple input values as data.table
+#' objective$eval_dt(data.table::data.table(x1 = 1:2, x2 = 3:4))
 ObjectiveRFunMany = R6Class("ObjectiveRFunMany",
   inherit = Objective,
   public = list(
@@ -53,6 +66,7 @@ ObjectiveRFunMany = R6Class("ObjectiveRFunMany",
       id = "function",
       properties = character(),
       constants = ps(),
+      packages = character(),
       check_values = TRUE
       ) {
       if (is.null(codomain)) codomain = ps(y = p_dbl(tags = "minimize"))
@@ -64,6 +78,7 @@ ObjectiveRFunMany = R6Class("ObjectiveRFunMany",
         codomain = codomain,
         properties = properties,
         constants = constants,
+        packages = packages,
         check_values = check_values,
         label = "Objective Custom R Function Eval List")
     },

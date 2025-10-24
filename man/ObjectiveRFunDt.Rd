@@ -6,6 +6,43 @@
 \description{
 Objective interface where user can pass an R function that works on an \code{data.table()}.
 }
+\examples{
+# define objective function
+fun = function(xdt) {
+  data.table::data.table(y = xdt$x1 + xdt$x2)
+}
+
+# set domain
+domain = ps(
+  x1 = p_dbl(-10, 10),
+  x2 = p_dbl(-5, 5)
+)
+
+# set codomain
+codomain = ps(
+  y = p_dbl(tags = "maximize")
+)
+
+# create objective
+objective = ObjectiveRFunDt$new(
+  fun = fun,
+  domain = domain,
+  codomain = codomain,
+  properties = "deterministic"
+)
+
+# evaluate objective function
+objective$eval(list(x1 = 1, x2 = 2))
+
+# evaluate multiple input values
+objective$eval_many(list(list(x1 = 1, x2 = 2), list(x1 = 3, x2 = 4)))
+
+# evaluate multiple input values as data.table
+objective$eval_dt(data.table::data.table(x1 = 1:2, x2 = 3:4))
+}
+\seealso{
+\link{ObjectiveRFun}, \link{ObjectiveRFunMany}
+}
 \section{Super class}{
 \code{\link[bbotk:Objective]{bbotk::Objective}} -> \code{ObjectiveRFunDt}
 }
@@ -49,6 +86,7 @@ Creates a new instance of this \link[R6:R6Class]{R6} class.
   id = "function",
   properties = character(),
   constants = ps(),
+  packages = character(),
   check_values = TRUE
 )}\if{html}{\out{</div>}}
 }
@@ -76,6 +114,9 @@ be minimized or maximized.  The default is to minimize each component.}
 
 \item{\code{constants}}{(\link[paradox:ParamSet]{paradox::ParamSet})\cr
 Changeable constants or parameters that are not subject to tuning can be stored and accessed here.}
+
+\item{\code{packages}}{(\code{character()})\cr
+Set of required packages to run the objective function.}
 
 \item{\code{check_values}}{(\code{logical(1)})\cr
 Should points before the evaluation and the results be checked for validity?}

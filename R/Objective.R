@@ -20,6 +20,7 @@
 #' @template param_man
 #' @template param_packages
 #'
+#' @seealso [ObjectiveRFun], [ObjectiveRFunMany], [ObjectiveRFunDt]
 #' @export
 Objective = R6Class("Objective",
   public = list(
@@ -192,6 +193,7 @@ Objective = R6Class("Objective",
 
     #' @field packages (`character()`)\cr
     #' Set of required packages to run the objective function.
+    #' Packages are loaded on each worker when the objective is called by [OptimizerAsync].
     packages = function(rhs) {
       assert_ro_binding(rhs)
       private$.packages
