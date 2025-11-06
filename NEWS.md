@@ -1,3 +1,8 @@
+# bbotk 1.8.0
+
+* feat: Add `on_optimizer_queue_before_eval` and `on_optimizer_queue_after_eval` stages to `CallbackAsync` and `CallbackBatch`.
+* fix: Start phase of `rush` worker.
+
 # bbotk 1.7.1
 
 fix: Imbalanced protection and casting in C code.
