@@ -1,6 +1,6 @@
-1cae9424e4748207297ecf50f9d718e7 *DESCRIPTION
+7d8a2a7821c285167b0b35d964f89c9c *DESCRIPTION
 070b79dfb552454fb5c55722604d7fb3 *NAMESPACE
-2fd7b7504dee6d7ec019d6daf9aeb2b8 *NEWS.md
+01377404160f6b2eba5f62aebed98b42 *NEWS.md
 9a3d1d40ab2408dab66b87252f5eb69e *R/Archive.R
 f094fd24acb215229595026355b6ddec *R/ArchiveAsync.R
 42119e530abeec749e99d8a1596ae7a8 *R/ArchiveAsyncFrozen.R
@@ -151,7 +151,7 @@ cb2f6545ee2bee97266fe2abaf3718a1 *man/terminated_error.Rd
 5ee6d0746f211bf6c1c8e273e0a5b7c2 *man/trm.Rd
 b8a2fb4b58e8917b221a1521d5878b2c *src/init.c
 cb51db62919c6798b307204c6359c752 *src/is_dominated.c
-1a12ab0b9d4b350dc83dd9fcd4988c1a *src/local_search.c
+cfa318dfa682aebcd016831ab149d6f6 *src/local_search.c
 b19958ff4096d82783b9810d2c45dc31 *src/local_search.h
 da6d9d61e961f22fb19f1036e5952c73 *src/rc_helpers.c
 ee5ef8f3ad828ffafa5149dc492fa57e *src/rc_helpers.h
@@ -201,7 +201,7 @@ b3cdab801563ce887b6ba70fe45975e7 *tests/testthat/test_OptimizerAsynDesignPoints.
 926c6fe2dd4f9ee814ebe2efe5b47d4c *tests/testthat/test_OptimizerBatchGenSA.R
 a16d0de0009e285b4e1f4a537465941b *tests/testthat/test_OptimizerBatchGridSearch.R
 31a5af43526b31f1eae2f4729b01868c *tests/testthat/test_OptimizerBatchIrace.R
-a71f3ff2cecaa1cf6b38181465ea1cbd *tests/testthat/test_OptimizerBatchLocalSearch.R
+88d090c7c234a7d7ee1de74a7aa73902 *tests/testthat/test_OptimizerBatchLocalSearch.R
 b9d90d040c089d7a9039c62d39f4b16e *tests/testthat/test_OptimizerBatchNLoptr.R
 ead171595a0d1861e31fadf23079a95b *tests/testthat/test_OptimizerBatchRandomSearch.R
 b8482bced224b2f38b6b8245e41b257b *tests/testthat/test_Progressor.R
@@ -215,7 +215,7 @@ c0192f089eee62352f816d9b7c29f223 *tests/testthat/test_TerminatorPerfReached.R
 eed1d20d498ad7ab4a7335c1ad0664ae *tests/testthat/test_TerminatorStagnationBatch.R
 c6bf3ab2c7312755058793bb4bddf084 *tests/testthat/test_TerminatorStagnationHypervolume.R
 06155926077d014e264544298a07cbad *tests/testthat/test_bb_optimize.R
-b54f14b9d15d30837f8f8040e77bfcba *tests/testthat/test_c_functions.R
+f855520f9fff586ae8d38ade70e0b427 *tests/testthat/test_c_functions.R
 810eb5dfb695c377296f74fcc1459782 *tests/testthat/test_deprecated.R
 7796d100dd90bec229a2e7e0c1f73d28 *tests/testthat/test_local_search.R
 dd4f17f185b5d5011a60a24d140f6f0a *tests/testthat/test_mlr_callbacks.R
