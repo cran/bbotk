@@ -20,10 +20,10 @@ test_that("async callback works", {
   skip_if_not_installed("rush")
   skip_if_no_redis()
 
+  rush = start_rush(n_workers = 2)
 
-  rush = start_rush(n_workers = 2, worker_type = "remote")
-
-  callback = callback_async("bbotk.test",
+  callback = callback_async(
+    "bbotk.test",
     on_worker_begin = function(callback, context) {
       key = context$instance$archive$push_running_point(list(x = 1))
       context$instance$archive$push_result(key, list(y = 1), list(x = 1))
@@ -57,7 +57,7 @@ test_that("async freeze archive callback works", {
   skip_if_not_installed("rush")
   skip_if_no_redis()
 
-  rush = start_rush(n_workers = 2, worker_type = "remote")
+  rush = start_rush(n_workers = 2)
   instance = oi_async(
     objective = OBJ_2D,
     search_space = PS_2D,

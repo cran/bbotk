@@ -1,3 +1,9 @@
+# bbotk 1.10.0
+
+* chore: Minimum required version of `rush` is now 1.0.0. Removed all compatibility workarounds for older versions.
+* fix: Remove non-API C entry points that caused CRAN warnings (#332).
+* feat: Add `mlr_test_functions` dictionary with well-known 2-D optimization test functions (Branin, Rosenbrock, Himmelblau, Rastrigin, etc.) and sugar functions `otfun()` / `otfuns()`.
+
 # bbotk 1.9.0
 
 * feat: Allow `"learn"` tag (direction=0) alongside minimize/maximize in `Codomain`.
@@ -10,7 +16,6 @@
 # bbotk 1.8.1
 
 * fix: Any Conditions work with `OptimizerLocalSearch` now.
-
 
 # bbotk 1.8.0
 
