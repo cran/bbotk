@@ -1,6 +1,6 @@
 Package: bbotk
 Title: Black-Box Optimization Toolkit
-Version: 1.10.0
+Version: 1.10.1
 Authors@R: c(
     person("Marc", "Becker", , "marcbecker@posteo.de", role = c("cre", "aut"),
            comment = c(ORCID = "0000-0002-8115-0400")),
@@ -24,7 +24,7 @@ URL: https://bbotk.mlr-org.com, https://github.com/mlr-org/bbotk
 BugReports: https://github.com/mlr-org/bbotk/issues
 Depends: paradox (>= 1.0.0), R (>= 3.1.0)
 Imports: checkmate (>= 2.0.0), cli, data.table, lgr, methods, mlr3misc
-        (>= 0.21.0), R6
+        (>= 0.21.0), moocore, R6
 Suggests: adagio, emoa, GenSA, irace (>= 4.0.0), knitr, mirai, nloptr,
         processx, progressr, redux, RhpcBLASctl, rush (>= 1.0.0),
         testthat (>= 3.0.0)
@@ -33,7 +33,6 @@ Config/testthat/parallel: false
 Encoding: UTF-8
 Language: en-US
 NeedsCompilation: yes
-RoxygenNote: 7.3.3
 Collate: 'Archive.R' 'ArchiveAsync.R' 'ArchiveAsyncFrozen.R'
         'ArchiveBatch.R' 'CallbackAsync.R' 'CallbackBatch.R'
         'Codomain.R' 'ContextAsync.R' 'ContextBatch.R' 'EvalInstance.R'
@@ -61,7 +60,8 @@ Collate: 'Archive.R' 'ArchiveAsync.R' 'ArchiveAsyncFrozen.R'
         'bibentries.R' 'conditions.R' 'helper.R' 'local_search.R'
         'mlr_callbacks.R' 'mlr_test_functions.R' 'nds_selection.R'
         'reexport.R' 'sugar.R' 'worker_loops.R' 'zzz.R'
-Packaged: 2026-04-07 09:32:41 UTC; marc
+Config/roxygen2/version: 8.0.0.9000
+Packaged: 2026-06-12 16:45:45 UTC; marc
 Author: Marc Becker [cre, aut] (ORCID: <https://orcid.org/0000-0002-8115-0400>),
   Jakob Richter [aut] (ORCID: <https://orcid.org/0000-0003-4481-5554>),
   Michel Lang [aut] (ORCID: <https://orcid.org/0000-0001-9754-0393>),
@@ -70,4 +70,4 @@ Author: Marc Becker [cre, aut] (ORCID: <https://orcid.org/0000-0002-8115-0400>),
   Olaf Mersmann [ctb]
 Maintainer: Marc Becker <marcbecker@posteo.de>
 Repository: CRAN
-Date/Publication: 2026-04-08 05:10:29 UTC
+Date/Publication: 2026-06-13 05:10:12 UTC

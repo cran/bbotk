@@ -1,3 +1,8 @@
+# bbotk 1.10.1
+
+* refactor: `is_dominated()` now uses `moocore::is_nondominated()` internally instead of a custom C implementation (#301).
+* refactor: Replace `emoa::dominated_hypervolume` with `moocore::hypervolume` for computing the hypervolume indicator.
+
 # bbotk 1.10.0
 
 * chore: Minimum required version of `rush` is now 1.0.0. Removed all compatibility workarounds for older versions.
@@ -45,7 +50,7 @@ fix: Load required packages in worker loop.
   The `mlr3/bbotk` logger is a child of the `mlr3` logger and is used for logging messages from the `bbotk` and `mlr3tuning` package.
 * feat: Classes are now printed with the `cli` package.
 * fix: Prevent switching of `xss` and `constants`.
-* fix: Add saveguard on `OptimizerNloptr` bounds.
+* fix: Add safeguard on `OptimizerNloptr` bounds.
 * feat: Allow numerical gradient approximation in `OptimizerNloptr`.
 
 # bbotk 1.5.0
