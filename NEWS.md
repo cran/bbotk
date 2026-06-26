@@ -1,3 +1,12 @@
+# bbotk 1.11.0
+
+* fix: Asynchronous optimization no longer calls the deprecated `rush$fail_tasks()` method when cleaning up after termination.
+  Queued tasks are now removed with `rush$empty_queue()` and running tasks are left to the workers that own them.
+* feat: `ArchiveAsync` gains additional methods wrapping the `rush` task API: `$push_point()`, `$push_running_points()`, `$push_finished_point()`, `$push_finished_points()`, `$push_failed_points()`, `$finish_point()`, `$finish_points()`, `$fail_point()`, and `$fail_points()`.
+* BREAKING CHANGE: `ArchiveAsync$push_failed_point()` now creates a new failed point in the archive instead of moving a running point to the failed points.
+  Use `$fail_point()` to move a running point to the failed points.
+* refactor: `ArchiveAsync$push_result()` is deprecated, use `$finish_point()` instead.
+
 # bbotk 1.10.1
 
 * refactor: `is_dominated()` now uses `moocore::is_nondominated()` internally instead of a custom C implementation (#301).
