@@ -1,9 +1,9 @@
-49d81d76fa9e5724165da0fb0163841a *DESCRIPTION
+397d2615171267a7c04fade15adb7361 *DESCRIPTION
 7503efd8bfc419e6cbc7c67c354d33e9 *NAMESPACE
-8736519aa44ba482d634e3739bf81cf8 *NEWS.md
+da8e8b11042f54d90bf0de1a9b4c377d *NEWS.md
 0cbb845fb13611da281980bee781a44b *R/Archive.R
-759f4e17baf0f49192ab33d45f369424 *R/ArchiveAsync.R
-c504e8adcd393263caa8d57eb5d681c4 *R/ArchiveAsyncFrozen.R
+4b46343dcf261b2f4bdcceb8bd4b2057 *R/ArchiveAsync.R
+caa2cd6c0e6f166eaf06cdf3b6110813 *R/ArchiveAsyncFrozen.R
 88257cb302cfd9b7d8e8459b2031d4ff *R/ArchiveBatch.R
 cf77f0ebe79119ab893861fb17ffaffa *R/CallbackAsync.R
 7eaf92d092abbda17bf5d43a164cef86 *R/CallbackBatch.R
@@ -16,7 +16,7 @@ d9db0e1bc69c506f9daddf613250bf03 *R/Objective.R
 28ebda5dc3d4ed489b400711877ad66d *R/ObjectiveRFunDt.R
 641e4bdc9557110e948cb951ccce1bd8 *R/ObjectiveRFunMany.R
 22f96c5994535cef0a05fb07b4b51892 *R/OptimInstance.R
-369222bf0d09bb5a009aca560eaf16db *R/OptimInstanceAsync.R
+9f70564d33dc1801c431aeb533c1c66c *R/OptimInstanceAsync.R
 8112839fc8fb3adc49ab0be36f2cdbe5 *R/OptimInstanceAsyncMultiCrit.R
 90cb8e53ec1a9d30290dfcac3c1cb845 *R/OptimInstanceAsyncSingleCrit.R
 e431c0b66aa57316524617a8286c62aa *R/OptimInstanceBatch.R
@@ -68,11 +68,12 @@ cf941d02e01a360acd8b5f3d77aee15d *R/mlr_optimizers.R
 97473ea0802adcf90b830d853602d7a2 *R/sugar.R
 053a70224ae4a1bbd8ef54ac893fb69d *R/worker_loops.R
 6baa32f33e013ab7d5df3a72665bc853 *R/zzz.R
-3df088c411136ff47cfa17d06c57376d *README.md
+9992b0831dd1dcbd3b1c7be3a0c44498 *README.md
 533839446f70bde34a1050627ce80586 *build/partial.rdb
+a0e2cd73465176aaaa66cba86a5bf4a6 *inst/CITATION
 d204b7a03a8d80672d837acd442f6ae1 *man/Archive.Rd
-7afbb42b1387bfc1c2e3bcd800091c15 *man/ArchiveAsync.Rd
-01ddd379fa50ae3eb11fa2e89828c5c8 *man/ArchiveAsyncFrozen.Rd
+fe8e1d20c8c0fe7c7150362066daf8f9 *man/ArchiveAsync.Rd
+3aea08172fc97e5017f233fd4c71687b *man/ArchiveAsyncFrozen.Rd
 5f039e829777af915d8f779f70fcfcd6 *man/ArchiveBatch.Rd
 873abd0478cd57144a785ef422515ccf *man/CallbackAsync.Rd
 effe46f7a2e68259394a2a018cadf567 *man/CallbackBatch.Rd
@@ -187,7 +188,7 @@ a1fa57b0e4ac1d438a46c9220b322269 *tests/testthat/_snaps/TerminatorStagnation.md
 460259f587a6686e8ae283acd100f6e1 *tests/testthat/helper.R
 05ad18c010a09acf63549e809eb5c3f3 *tests/testthat/setup.R
 53b2b53e9ecd2db30a03efe0b1490144 *tests/testthat/teardown.R
-5376a10d77a352c566b4d189fdd184ea *tests/testthat/test_ArchiveAsync.R
+440b7153c839bb4230589bc9a8df700a *tests/testthat/test_ArchiveAsync.R
 1ff99a122ef8316dcccee782b6d15e31 *tests/testthat/test_ArchiveAsyncFrozen.R
 9223e238e521a4b478b28d082dc2139f *tests/testthat/test_ArchiveBatch.R
 4ffa0c32eeb22b3379e94634ec78e21f *tests/testthat/test_CallbackAsync.R
