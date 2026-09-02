@@ -1,6 +1,6 @@
 Package: bbotk
 Title: Black-Box Optimization Toolkit
-Version: 1.12.0
+Version: 1.13.0
 Authors@R: c(
     person("Marc", "Becker", , "marcbecker@posteo.de", role = c("cre", "aut"),
            comment = c(ORCID = "0000-0002-8115-0400")),
@@ -24,10 +24,10 @@ URL: https://bbotk.mlr-org.com, https://github.com/mlr-org/bbotk
 BugReports: https://github.com/mlr-org/bbotk/issues
 Depends: paradox (>= 1.0.0), R (>= 3.1.0)
 Imports: checkmate (>= 2.0.0), cli, data.table, lgr, methods, mlr3misc
-        (>= 0.21.0), moocore, R6
-Suggests: adagio, emoa, GenSA, irace (>= 4.0.0), knitr, mirai, nloptr,
-        processx, progressr, redux, RhpcBLASctl, rush (>= 1.2.0),
-        testthat (>= 3.0.0)
+        (>= 0.21.0), moocore (>= 0.3.2), R6
+Suggests: GenSA, irace (>= 4.0.0), knitr, libcmaesr, mirai, nloptr,
+        processx, progressr, redux, RhpcBLASctl, rush (>= 1.3.0),
+        testthat (>= 3.0.0), uuid
 Config/testthat/edition: 3
 Config/testthat/parallel: false
 Encoding: UTF-8
@@ -60,8 +60,8 @@ Collate: 'Archive.R' 'ArchiveAsync.R' 'ArchiveAsyncFrozen.R'
         'bibentries.R' 'conditions.R' 'helper.R' 'local_search.R'
         'mlr_callbacks.R' 'mlr_test_functions.R' 'nds_selection.R'
         'reexport.R' 'sugar.R' 'worker_loops.R' 'zzz.R'
-Config/roxygen2/version: 8.0.0.9000
-Packaged: 2026-07-17 11:09:02 UTC; marc
+Config/roxygen2/version: 8.1.0
+Packaged: 2026-09-01 20:13:50 UTC; marc
 Author: Marc Becker [cre, aut] (ORCID: <https://orcid.org/0000-0002-8115-0400>),
   Jakob Richter [aut] (ORCID: <https://orcid.org/0000-0003-4481-5554>),
   Michel Lang [aut] (ORCID: <https://orcid.org/0000-0001-9754-0393>),
@@ -70,4 +70,4 @@ Author: Marc Becker [cre, aut] (ORCID: <https://orcid.org/0000-0002-8115-0400>),
   Olaf Mersmann [ctb]
 Maintainer: Marc Becker <marcbecker@posteo.de>
 Repository: CRAN
-Date/Publication: 2026-07-17 12:30:02 UTC
+Date/Publication: 2026-09-02 09:40:02 UTC
