@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include <assert.h>
 
 // print a data.table row (for debugging)
 void dt_print_row(SEXP dt, int row) {
@@ -121,7 +120,7 @@ int dt_is_na(SEXP s_dt, int row_i, int param_j) {
             return STRING_ELT(s_col, row_i) == NA_STRING;
     }
     // this should never happen...
-    assert(0);
+    Rf_error("Unsupported column type in search space");
     return 0;
 }
 
@@ -190,7 +189,9 @@ SEXP dt_generate(int n, SearchSpace* ss) {
 // Helper function mutate a single element of a config (in a DT)
 void dt_mutate_element(SEXP s_dt, int row_i, int param_j, const SearchSpace* ss, const Control* ctrl) {
     // we only mutate elements that are not NA
-    assert(!dt_is_na(s_dt, row_i, param_j));
+    if (dt_is_na(s_dt, row_i, param_j)) {
+        Rf_error("Cannot mutate the inactive parameter '%s'", ss->param_names[param_j]);
+    }
     int param_class = ss->param_classes[param_j];
     SEXP s_neigh_col = VECTOR_ELT(s_dt, param_j);
     if (param_class == 0) { // ParamDbl
@@ -230,9 +231,7 @@ void dt_mutate_element(SEXP s_dt, int row_i, int param_j, const SearchSpace* ss,
             // Find current level index
             const char* current_level = CHAR(STRING_ELT(s_neigh_col, row_i));
             int current_idx = 0;
-            while (current_idx < n_levels &&
-              strncmp(current_level, ss->level_names[param_j][current_idx], strlen(current_level)) != 0)
-            {
+            while (current_idx < n_levels && strcmp(current_level, ss->level_names[param_j][current_idx]) != 0) {
                 current_idx++;
             }
             // Sample from other levels using shift trick
@@ -272,10 +271,11 @@ SEXP try_eval(void *data) {
 
 // internal function to handle what happens in the catch block
 // if the terminator triggers, we return NIL, otherwise we raise error back to R
+// "terminated_error" is the legacy class of the termination condition, see R/conditions.R
 SEXP catch_condition(SEXP s_condition, void *data) {
     DEBUG_PRINT("Caught R condition of class: %s\n",
         CHAR(STRING_ELT(Rf_getAttrib(s_condition, R_ClassSymbol), 0)));
-    if (!Rf_inherits(s_condition, "terminator_exception")) {
+    if (!Rf_inherits(s_condition, "Mlr3ErrorBbotkTerminated") && !Rf_inherits(s_condition, "terminated_error")) {
         SEXP stop_call = PROTECT(Rf_lang2(Rf_install("stop"), s_condition));
         Rf_eval(stop_call, R_GlobalEnv);
         UNPROTECT(1); // stop_call
@@ -295,7 +295,7 @@ SEXP safe_eval(SEXP expr) {
 // Find parameter index by name, -1 if not found (should not happen)
 int find_param_index(const char* param_name, const SearchSpace* ss) {
     for (int j = 0; j < ss->n_params; j++) {
-        if (strncmp(ss->param_names[j], param_name, strlen(param_name)) == 0) {
+        if (strcmp(ss->param_names[j], param_name) == 0) {
             return j;
         }
     }
@@ -403,10 +403,10 @@ void extract_ctrl_info(SEXP s_ctrl, Control* ctrl) {
     ctrl->n_neighs = asInteger(RC_get_list_el_by_name(s_ctrl, "n_neighs"));
     ctrl->mut_sd = asReal(RC_get_list_el_by_name(s_ctrl, "mut_sd"));
     ctrl->stagnate_max = asInteger(RC_get_list_el_by_name(s_ctrl, "stagnate_max"));
-    assert(ctrl->n_searches > 0);
-    assert(ctrl->n_steps >= 0);
-    assert(ctrl->n_neighs > 0);
-    assert(ctrl->mut_sd > 0);
+    if (ctrl->n_searches <= 0) Rf_error("'n_searches' must be positive");
+    if (ctrl->n_steps < 0) Rf_error("'n_steps' must not be negative");
+    if (ctrl->n_neighs <= 0) Rf_error("'n_neighs' must be positive");
+    if (ctrl->mut_sd <= 0) Rf_error("'mut_sd' must be positive");
 }
 
 
@@ -437,7 +437,9 @@ void toposort_params(SearchSpace* ss) {
             }
         }
     }
-    assert(count == ss->n_params);
+    if (count != ss->n_params) {
+        Rf_error("The dependencies of the search space are cyclic");
+    }
     ss->sorted_param_indices = sorted;
 }
 
@@ -457,7 +459,9 @@ void reorder_conds_by_toposort(SearchSpace* ss) {
             }
         }
     }
-    assert(reordered_count == ss->n_conds);
+    if (reordered_count != ss->n_conds) {
+        Rf_error("The dependencies of the search space are cyclic");
+    }
     // copy back to original array
     for (int i = 0; i < ss->n_conds; i++) {
         ss->conds[i] = reordered_conds[i];
@@ -641,7 +645,10 @@ void copy_best_neighs_to_pop(SEXP s_neighs_x, double* neighs_y,
 
 int eval_obj(int n, SEXP s_x, SEXP s_obj, double* y, const Control* ctrl) {
     SEXP s_call = PROTECT(Rf_lang2(s_obj, s_x));
+    // the RNG state must be written back before we call into R, because the objective may draw random numbers itself
+    PutRNGstate();
     SEXP s_y = PROTECT(safe_eval(s_call));
+    GetRNGstate();
     int eval_ok = 0;
     if (s_y != R_NilValue) {
         memcpy(y, REAL(s_y), n * sizeof(double));
